@@ -1,0 +1,89 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Formation
+ *
+ * @ORM\Table(name="formation")
+ * @ORM\Entity
+ */
+class Formation
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee_debut", type="date", nullable=true)
+     */
+    private $anneeDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee_fin", type="date", nullable=true)
+     */
+    private $anneeFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="annee_courante", type="string", length=25, nullable=true)
+     */
+    private $anneeCourante;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intitule", type="string", length=100, nullable=true)
+     */
+    private $intitule;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ecole", type="string", length=255, nullable=true)
+     */
+    private $ecole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=100, nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codepostal", type="integer", nullable=true)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lien", type="string", length=255, nullable=true)
+     */
+    private $lien;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+
