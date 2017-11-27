@@ -1,9 +1,10 @@
 <?php
 
-namespace AppBundle;
+namespace CVBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
-{
+class CVBundle extends Bundle {
+
+
 }

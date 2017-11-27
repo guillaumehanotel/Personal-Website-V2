@@ -1,0 +1,9 @@
+# src/BlogBundle/Resources/config/routing.yml
+
+blog_home:
+    path: /{page}
+    defaults:
+        page: 1
+        _controller: BlogBundle:Blog:index
+    requirements:
+        page: \d*

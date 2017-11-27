@@ -1,0 +1,6 @@
+# src/CVBundle/Resources/config/routing.yml
+
+cv_home:
+    path: /
+    defaults:
+        _controller: CVBundle:CV:index

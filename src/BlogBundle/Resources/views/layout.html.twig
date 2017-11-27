@@ -1,0 +1,15 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    Blog - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Blog</h1>
+
+    {% block blog_body %}
+
+    {% endblock %}
+
+{% endblock %}
