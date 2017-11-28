@@ -34,6 +34,58 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+    cv.admin.competence:
+        class: CVBundle\Admin\CompetenceAdmin
+        arguments: [~, CVBundle\Entity\Competence, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Competence
+              group: "CV"
+        public: true
+
+
+    cv.admin.experience:
+        class: CVBundle\Admin\ExperienceAdmin
+        arguments: [~, CVBundle\Entity\Experience, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Experience
+              group: "CV"
+
+        public: true
+
+
+    cv.admin.formation:
+        class: CVBundle\Admin\FormationAdmin
+        arguments: [~, CVBundle\Entity\Formation, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Formation
+              group: "CV"
+        public: true
+
+    cv.admin.intro:
+        class: CVBundle\Admin\IntroAdmin
+        arguments: [~, CVBundle\Entity\Intro, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Intro
+              group: "CV"
+        public: true
+
+    cv.admin.realisation:
+        class: CVBundle\Admin\RealisationAdmin
+        arguments: [~, CVBundle\Entity\Realisation, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Realisation
+              group: "CV"
+        public: true
 
 
 

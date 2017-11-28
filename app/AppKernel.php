@@ -18,12 +18,15 @@ class AppKernel extends Kernel
             new BlogBundle\BlogBundle(),
             new \CVBundle\CVBundle(),
 
-            // Admin Bundle
+            // Sonata Admin Bundle
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
+            // FOSUserBundle
+            new FOS\UserBundle\FOSUserBundle(),
 
 
 

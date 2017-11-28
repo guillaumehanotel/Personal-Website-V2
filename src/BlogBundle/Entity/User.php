@@ -1,8 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as FOSUser;
 
 /**
  * User
@@ -10,8 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User
-{
+class User extends FOSUser {
     /**
      * @var string
      *
@@ -33,8 +33,14 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
+    /**
+     * User constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+    }
 
 
     /**
@@ -44,8 +50,7 @@ class User
      *
      * @return User
      */
-    public function setFirstname($firstname)
-    {
+    public function setFirstname($firstname) {
         $this->firstname = $firstname;
 
         return $this;
@@ -56,8 +61,7 @@ class User
      *
      * @return string
      */
-    public function getFirstname()
-    {
+    public function getFirstname() {
         return $this->firstname;
     }
 
@@ -68,8 +72,7 @@ class User
      *
      * @return User
      */
-    public function setLastname($lastname)
-    {
+    public function setLastname($lastname) {
         $this->lastname = $lastname;
 
         return $this;
@@ -80,8 +83,7 @@ class User
      *
      * @return string
      */
-    public function getLastname()
-    {
+    public function getLastname() {
         return $this->lastname;
     }
 
@@ -90,8 +92,7 @@ class User
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 }

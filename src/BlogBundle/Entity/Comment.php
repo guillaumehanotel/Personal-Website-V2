@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="comment", indexes={@ORM\Index(name="FK_comment_id_user", columns={"id_user"}), @ORM\Index(name="FK_comment_id_post", columns={"id_post"})})
  * @ORM\Entity
  */
-class Comment
-{
+class Comment {
     /**
      * @var string
      *
@@ -36,9 +35,9 @@ class Comment
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Post
+     * @var \BlogBundle\Entity\Post
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Post")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_post", referencedColumnName="id")
      * })
@@ -46,15 +45,14 @@ class Comment
     private $idPost;
 
     /**
-     * @var \AppBundle\Entity\User
+     * @var \BlogBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
      */
     private $idUser;
-
 
 
     /**
@@ -64,8 +62,7 @@ class Comment
      *
      * @return Comment
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -76,8 +73,7 @@ class Comment
      *
      * @return string
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -88,8 +84,7 @@ class Comment
      *
      * @return Comment
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -100,8 +95,7 @@ class Comment
      *
      * @return \DateTime
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -110,20 +104,18 @@ class Comment
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
     /**
      * Set idPost
      *
-     * @param \AppBundle\Entity\Post $idPost
+     * @param \BlogBundle\Entity\Post $idPost
      *
      * @return Comment
      */
-    public function setIdPost(\AppBundle\Entity\Post $idPost = null)
-    {
+    public function setIdPost(\BlogBundle\Entity\Post $idPost = null) {
         $this->idPost = $idPost;
 
         return $this;
@@ -132,22 +124,20 @@ class Comment
     /**
      * Get idPost
      *
-     * @return \AppBundle\Entity\Post
+     * @return \BlogBundle\Entity\Post
      */
-    public function getIdPost()
-    {
+    public function getIdPost() {
         return $this->idPost;
     }
 
     /**
      * Set idUser
      *
-     * @param \AppBundle\Entity\User $idUser
+     * @param \BlogBundle\Entity\User $idUser
      *
      * @return Comment
      */
-    public function setIdUser(\AppBundle\Entity\User $idUser = null)
-    {
+    public function setIdUser(\BlogBundle\Entity\User $idUser = null) {
         $this->idUser = $idUser;
 
         return $this;
@@ -156,10 +146,9 @@ class Comment
     /**
      * Get idUser
      *
-     * @return \AppBundle\Entity\User
+     * @return \BlogBundle\Entity\User
      */
-    public function getIdUser()
-    {
+    public function getIdUser() {
         return $this->idUser;
     }
 }

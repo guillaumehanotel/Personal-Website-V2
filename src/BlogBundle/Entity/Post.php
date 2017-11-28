@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="post", indexes={@ORM\Index(name="FK_post_id_user", columns={"id_user"})})
  * @ORM\Entity
  */
-class Post
-{
+class Post {
     /**
      * @var string
      *
@@ -43,15 +42,14 @@ class Post
     private $id;
 
     /**
-     * @var \AppBundle\Entity\User
+     * @var \BlogBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
      */
     private $idUser;
-
 
 
     /**
@@ -61,8 +59,7 @@ class Post
      *
      * @return Post
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -73,8 +70,7 @@ class Post
      *
      * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -85,8 +81,7 @@ class Post
      *
      * @return Post
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -97,8 +92,7 @@ class Post
      *
      * @return string
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -109,8 +103,7 @@ class Post
      *
      * @return Post
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -121,8 +114,7 @@ class Post
      *
      * @return \DateTime
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -131,20 +123,18 @@ class Post
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
     /**
      * Set idUser
      *
-     * @param \AppBundle\Entity\User $idUser
+     * @param \BlogBundle\Entity\User $idUser
      *
      * @return Post
      */
-    public function setIdUser(\AppBundle\Entity\User $idUser = null)
-    {
+    public function setIdUser(\AppBundle\Entity\User $idUser = null) {
         $this->idUser = $idUser;
 
         return $this;
@@ -153,10 +143,9 @@ class Post
     /**
      * Get idUser
      *
-     * @return \AppBundle\Entity\User
+     * @return \BlogBundle\Entity\User
      */
-    public function getIdUser()
-    {
+    public function getIdUser() {
         return $this->idUser;
     }
 }
