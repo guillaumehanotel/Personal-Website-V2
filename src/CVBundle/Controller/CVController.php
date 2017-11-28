@@ -10,6 +10,8 @@ class CVController extends Controller {
 
     public function indexAction(Request $request) {
 
+
+
         return $this->render('CVBundle:CV:index.html.twig', []);
     }
 
