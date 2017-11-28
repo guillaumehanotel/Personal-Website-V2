@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use BlogBundle\Entity\User;
 
 /**
  * Post
@@ -49,7 +50,7 @@ class Post {
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
      */
-    private $idUser;
+    private $User;
 
 
     /**
@@ -130,12 +131,12 @@ class Post {
     /**
      * Set idUser
      *
-     * @param \BlogBundle\Entity\User $idUser
+     * @param \BlogBundle\Entity\User $User
      *
      * @return Post
      */
-    public function setIdUser(\AppBundle\Entity\User $idUser = null) {
-        $this->idUser = $idUser;
+    public function setUser(User $User = null) {
+        $this->User = $User;
 
         return $this;
     }
@@ -145,7 +146,13 @@ class Post {
      *
      * @return \BlogBundle\Entity\User
      */
-    public function getIdUser() {
-        return $this->idUser;
+    public function getUser() {
+        return $this->User;
     }
+
+    public function __toString() {
+        return $this->title.' ('.$this->User.')';
+    }
+
+
 }

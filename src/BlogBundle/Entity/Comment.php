@@ -42,7 +42,7 @@ class Comment {
      *   @ORM\JoinColumn(name="id_post", referencedColumnName="id")
      * })
      */
-    private $idPost;
+    private $Post;
 
     /**
      * @var \BlogBundle\Entity\User
@@ -52,7 +52,14 @@ class Comment {
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
      */
-    private $idUser;
+    private $User;
+
+    /**
+     * Comment constructor.
+     */
+    public function __construct() {
+        $this->date = new \DateTime();
+    }
 
 
     /**
@@ -111,12 +118,12 @@ class Comment {
     /**
      * Set idPost
      *
-     * @param \BlogBundle\Entity\Post $idPost
+     * @param \BlogBundle\Entity\Post $Post
      *
      * @return Comment
      */
-    public function setIdPost(\BlogBundle\Entity\Post $idPost = null) {
-        $this->idPost = $idPost;
+    public function setPost(\BlogBundle\Entity\Post $Post = null) {
+        $this->Post = $Post;
 
         return $this;
     }
@@ -126,19 +133,19 @@ class Comment {
      *
      * @return \BlogBundle\Entity\Post
      */
-    public function getIdPost() {
-        return $this->idPost;
+    public function getPost() {
+        return $this->Post;
     }
 
     /**
      * Set idUser
      *
-     * @param \BlogBundle\Entity\User $idUser
+     * @param \BlogBundle\Entity\User $User
      *
      * @return Comment
      */
-    public function setIdUser(\BlogBundle\Entity\User $idUser = null) {
-        $this->idUser = $idUser;
+    public function setUser(\BlogBundle\Entity\User $User = null) {
+        $this->User = $User;
 
         return $this;
     }
@@ -148,7 +155,7 @@ class Comment {
      *
      * @return \BlogBundle\Entity\User
      */
-    public function getIdUser() {
-        return $this->idUser;
+    public function getUser() {
+        return $this->User;
     }
 }

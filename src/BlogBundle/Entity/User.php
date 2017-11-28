@@ -95,4 +95,10 @@ class User extends FOSUser {
     public function getId() {
         return $this->id;
     }
+
+    public function __toString() {
+        return $this->username.'';
+    }
+
+
 }
