@@ -1,0 +1,81 @@
+/*--------------------------------*\
+    Base
+\*--------------------------------*/
+
+body {
+    background-color: black;
+}
+
+p {
+
+}
+
+ul {
+    list-style: none;
+}
+
+/*--------------------------------*\
+    Layout    (Positionnement)
+\*--------------------------------*/
+
+.l-header-cv {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 250px;
+
+}
+
+.l-header-cv h1 {
+    text-align: center;
+}
+
+.l-header-cv .subtitle {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.l-header-cv .nav-header {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.l-header-cv .nav-header ul li{
+    margin-bottom: 15px;
+}
+
+/*--------------------------------*\
+    Module    (Le Style)
+\*--------------------------------*/
+
+.cv {
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-cv {
+    color: white;
+}
+
+.header-cv h1 {
+    font-size: 70px;
+    font-weight: 600;
+}
+
+/*
+.header-cv .nav-header ul li:hover{
+    cursor: pointer;
+}
+*/
+
+
+/*--------------------------------*\
+    State
+\*--------------------------------*/
+
+.is-active {
+
+}
+

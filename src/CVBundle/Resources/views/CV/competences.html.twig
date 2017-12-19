@@ -1,0 +1,18 @@
+{% extends "CVBundle::layout.html.twig" %}
+
+
+{% block cv_main %}
+
+    <div id="competences" class="main">
+
+        {% for competence in competences %}
+            <div class="competence">
+                <p>{{ competence.intitule }}</p>
+                <img src="{{ competence.image }}" alt="img">
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

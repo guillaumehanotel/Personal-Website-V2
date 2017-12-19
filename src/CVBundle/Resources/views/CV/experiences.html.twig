@@ -1,0 +1,27 @@
+{% extends "CVBundle::layout.html.twig" %}
+
+
+{% block cv_main %}
+
+    <div id="experiences" class="main">
+
+        {% for experience in experiences %}
+            <div class="experience">
+                <p>{{ experience.dateDebut|date('d/m/y') }}</p>
+                <p>{{ experience.dateFin|date('d/m/y') }}</p>
+                <p>{{ experience.ville }}</p>
+                <p>{{ experience.intitule }}</p>
+                <p>{{ experience.entreprise }}</p>
+                <p>{{ experience.type }}</p>
+                <p>{{ experience.description }}</p>
+                <p>{{ experience.ordre }}</p>
+                <p>{{ experience.codepostal }}</p>
+            </div>
+        {% endfor %}
+
+
+
+    </div>
+
+
+{% endblock %}

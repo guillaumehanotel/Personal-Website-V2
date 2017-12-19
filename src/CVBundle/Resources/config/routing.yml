@@ -1,6 +1,35 @@
 # src/CVBundle/Resources/config/routing.yml
-
 cv_home:
     path: /
     defaults:
         _controller: CVBundle:CV:index
+
+cv_intro:
+    path: /intro
+    defaults:
+        _controller: CVBundle:CV:intro
+
+cv_projets:
+    path: /projets
+    defaults:
+        _controller: CVBundle:CV:projet
+
+cv_experiences:
+    path: /experiences
+    defaults:
+        _controller: CVBundle:CV:experience
+
+cv_competences:
+    path: /competences
+    defaults:
+        _controller: CVBundle:CV:competence
+
+cv_formations:
+    path: /formations
+    defaults:
+        _controller: CVBundle:CV:formation
+
+cv_contact:
+    path: /contact
+    defaults:
+        _controller: CVBundle:CV:contact

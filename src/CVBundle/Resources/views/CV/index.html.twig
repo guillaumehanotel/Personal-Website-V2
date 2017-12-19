@@ -5,7 +5,25 @@
 
     <div id="index" class="main">
 
-        <!-- Vide -->
+        <!-- Vide car le menu est dans le layout, l'index est vide-->
+        <header class="l-header-cv header-cv">
+
+            <h1>GUILLAUME HANOTEL</h1>
+            <span class="subtitle">{{ titre }}</span>
+
+            <nav class="nav-header">
+                <ul>
+                    <li><a class="nav-link" href="{{ path('cv_intro') }}">INTRO</a></li>
+                    <li><a class="nav-link" href="{{ path('cv_projets') }}">PROJETS</a></li>
+                    <li><a class="nav-link" href="{{ path('cv_experiences') }}">EXPERIENCES</a></li>
+                    <li><a class="nav-link" href="{{ path('cv_competences') }}">COMPETENCES</a></li>
+                    <li><a class="nav-link" href="{{ path('cv_formations') }}">FORMATION</a></li>
+                    <li><a class="nav-link" href="{{ path('blog_home') }}">BLOG</a></li>
+                    <li><a class="nav-link" href="{{ path('cv_contact') }}">CONTACT</a></li>
+                </ul>
+            </nav>
+
+        </header>
 
     </div>
 

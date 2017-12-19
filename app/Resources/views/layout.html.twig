@@ -6,6 +6,8 @@
 
     <title>{% block title %}Guillaume HANOTEL{% endblock %}</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-grid.min.css') }}"/>
@@ -15,8 +17,14 @@
 </head>
 
 <body>
-{% block body %}
 
+<div class="login">
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+</div>
+
+
+{% block body %}
 
 
 {% endblock %}

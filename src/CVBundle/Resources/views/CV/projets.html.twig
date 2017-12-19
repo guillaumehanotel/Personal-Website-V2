@@ -1,0 +1,22 @@
+{% extends "CVBundle::layout.html.twig" %}
+
+
+{% block cv_main %}
+
+    <div id="projets" class="main">
+
+        {% for realisation in realisations %}
+            <div class="projet">
+                <p>{{ realisation.link }}</p>
+                <p>{{ realisation.titre }}</p>
+                <p>{{ realisation.description }}</p>
+                <p>{{ realisation.image }}</p>
+            </div>
+        {% endfor %}
+
+
+
+    </div>
+
+
+{% endblock %}

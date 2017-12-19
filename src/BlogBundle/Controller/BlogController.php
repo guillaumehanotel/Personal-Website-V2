@@ -9,7 +9,9 @@ class BlogController extends Controller {
 
     public function indexAction(Request $request) {
 
-        return $this->render('BlogBundle:Blog:index.html.twig', []);
+
+        return $this->render('BlogBundle:Blog:index.html.twig', [
+        ]);
 
     }
 

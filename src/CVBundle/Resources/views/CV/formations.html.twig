@@ -1,0 +1,28 @@
+{% extends "CVBundle::layout.html.twig" %}
+
+
+{% block cv_main %}
+
+    <div id="formations" class="main">
+
+        {% for formation in formations %}
+            <div class="formation">
+                <p>{{ formation.anneeDebut|date('y') }}</p>
+                <p>{{ formation.anneeFin|date('y') }}</p>
+                <p>{{ formation.anneeCourante }}</p>
+                <p>{{ formation.intitule }}</p>
+                <p>{{ formation.ecole }}</p>
+                <p>{{ formation.ville }}</p>
+                <p>{{ formation.codepostal }}</p>
+                <p>{{ formation.description }}</p>
+                <p>{{ formation.lien }}</p>
+            </div>
+        {% endfor %}
+
+
+
+
+    </div>
+
+
+{% endblock %}

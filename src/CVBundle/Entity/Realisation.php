@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="realisation")
  * @ORM\Entity
  */
-class Realisation
-{
+class Realisation {
     /**
      * @var string
      *
@@ -50,7 +49,6 @@ class Realisation
     private $id;
 
 
-
     /**
      * Set link
      *
@@ -58,8 +56,7 @@ class Realisation
      *
      * @return Realisation
      */
-    public function setLink($link)
-    {
+    public function setLink($link) {
         $this->link = $link;
 
         return $this;
@@ -70,8 +67,7 @@ class Realisation
      *
      * @return string
      */
-    public function getLink()
-    {
+    public function getLink() {
         return $this->link;
     }
 
@@ -82,8 +78,7 @@ class Realisation
      *
      * @return Realisation
      */
-    public function setTitre($titre)
-    {
+    public function setTitre($titre) {
         $this->titre = $titre;
 
         return $this;
@@ -94,8 +89,7 @@ class Realisation
      *
      * @return string
      */
-    public function getTitre()
-    {
+    public function getTitre() {
         return $this->titre;
     }
 
@@ -106,8 +100,7 @@ class Realisation
      *
      * @return Realisation
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -118,8 +111,7 @@ class Realisation
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -130,8 +122,7 @@ class Realisation
      *
      * @return Realisation
      */
-    public function setImage($image)
-    {
+    public function setImage($image) {
         $this->image = $image;
 
         return $this;
@@ -142,8 +133,7 @@ class Realisation
      *
      * @return string
      */
-    public function getImage()
-    {
+    public function getImage() {
         return $this->image;
     }
 
@@ -152,8 +142,7 @@ class Realisation
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 }
