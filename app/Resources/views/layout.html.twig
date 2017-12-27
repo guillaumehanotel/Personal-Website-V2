@@ -6,6 +6,7 @@
 
     <title>{% block title %}Guillaume HANOTEL{% endblock %}</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/GH_32x32.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
     {% block stylesheets %}
@@ -16,7 +17,10 @@
     {% endblock %}
 </head>
 
+
 <body>
+
+
 
 <div class="login">
     {% block fos_user_content %}
@@ -28,6 +32,8 @@
 
 
 {% endblock %}
+
+
 
 {% block javascripts %}
     <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>

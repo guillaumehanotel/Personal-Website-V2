@@ -3,26 +3,26 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use BlogBundle\Entity\User;
 
 /**
- * Post
+ * Comment
  *
- * @ORM\Table(name="post", indexes={@ORM\Index(name="FK_post_id_user", columns={"id_user"})})
+ * @ORM\Table(name="comment", indexes={@ORM\Index(name="FK_comment_id_user", columns={"id_user"}), @ORM\Index(name="FK_comment_id_post", columns={"id_post"})})
  * @ORM\Entity
  */
-class Post {
+class Comment {
+
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     * @ORM\Column(name="is_valid", type="boolean")
      */
-    private $title;
+    private $is_valid;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text", length=65535, nullable=true)
+     * @ORM\Column(name="content", type="string", length=255, nullable=true)
      */
     private $content;
 
@@ -43,6 +43,16 @@ class Post {
     private $id;
 
     /**
+     * @var \BlogBundle\Entity\Post
+     *
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Post")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_post", referencedColumnName="id")
+     * })
+     */
+    private $Post;
+
+    /**
      * @var \BlogBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
@@ -52,35 +62,20 @@ class Post {
      */
     private $User;
 
-
     /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Post
+     * Comment constructor.
      */
-    public function setTitle($title) {
-        $this->title = $title;
-
-        return $this;
+    public function __construct() {
+        $this->date = new \DateTime();
     }
 
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle() {
-        return $this->title;
-    }
 
     /**
      * Set content
      *
      * @param string $content
      *
-     * @return Post
+     * @return Comment
      */
     public function setContent($content) {
         $this->content = $content;
@@ -102,7 +97,7 @@ class Post {
      *
      * @param \DateTime $date
      *
-     * @return Post
+     * @return Comment
      */
     public function setDate($date) {
         $this->date = $date;
@@ -129,13 +124,35 @@ class Post {
     }
 
     /**
+     * Set idPost
+     *
+     * @param \BlogBundle\Entity\Post $Post
+     *
+     * @return Comment
+     */
+    public function setPost(\BlogBundle\Entity\Post $Post = null) {
+        $this->Post = $Post;
+
+        return $this;
+    }
+
+    /**
+     * Get idPost
+     *
+     * @return \BlogBundle\Entity\Post
+     */
+    public function getPost() {
+        return $this->Post;
+    }
+
+    /**
      * Set idUser
      *
      * @param \BlogBundle\Entity\User $User
      *
-     * @return Post
+     * @return Comment
      */
-    public function setUser(User $User = null) {
+    public function setUser(\BlogBundle\Entity\User $User = null) {
         $this->User = $User;
 
         return $this;
@@ -149,10 +166,4 @@ class Post {
     public function getUser() {
         return $this->User;
     }
-
-    public function __toString() {
-        return $this->title.' ('.$this->User.')';
-    }
-
-
 }

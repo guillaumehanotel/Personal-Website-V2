@@ -1,0 +1,21 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+
+{% block blog_main %}
+
+    <div id="post-show">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <p>{{ post.date|date('d/m/y') }}</p>
+    </div>
+
+    {% for comment in comments %}
+        {{ comment.content }}
+        {{ comment.date|date('d/m/y H:i') }}
+        {{ comment.user.firstname }}
+        <br>
+    {% endfor %}
+
+
+
+{% endblock %}

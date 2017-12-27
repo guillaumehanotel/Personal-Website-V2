@@ -2,9 +2,26 @@
     Base
 \*--------------------------------*/
 
-body {
-    background-color: black;
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+body .cv {
+    height: 100%;
+}
+
+.cv + footer {
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 30px;
+}
+
+
 
 p {
 
@@ -14,6 +31,22 @@ ul {
     list-style: none;
 }
 
+img.bg-img-ynov {
+
+    width: 100%;
+    height: auto;
+
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -100;
+
+    -webkit-filter: brightness(30%);
+    filter: brightness(30%);
+}
+
+
+
 /*--------------------------------*\
     Layout    (Positionnement)
 \*--------------------------------*/
@@ -22,7 +55,7 @@ ul {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 250px;
+    padding-top: 250px;
 
 }
 
@@ -38,14 +71,22 @@ ul {
 
 .l-header-cv .nav-header {
     margin-top: 50px;
+}
+
+.l-header-cv .nav-header ul {
+    width: 200px;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
+
 
 .l-header-cv .nav-header ul li{
     margin-bottom: 15px;
 }
+
+
+
 
 /*--------------------------------*\
     Module    (Le Style)
@@ -64,11 +105,22 @@ ul {
     font-weight: 600;
 }
 
-/*
+.l-header-cv .nav-header ul li a {
+    color: white;
+
+}
+
+
 .header-cv .nav-header ul li:hover{
     cursor: pointer;
+
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    background: rgba(100,100,100,0.5);
 }
-*/
+
 
 
 /*--------------------------------*\

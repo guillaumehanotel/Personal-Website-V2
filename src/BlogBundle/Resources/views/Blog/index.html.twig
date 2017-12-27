@@ -6,5 +6,21 @@
     <h2>Index Blog</h2>
 
 
+    <div id="posts" class="main">
+
+        {% for post in posts %}
+            <div class="post">
+                <a href="{{ path('blog_post', {'id' : post.id}) }}">{{ post.title }}</a>
+                <p>{{ post.content|truncate(300, true) }}</p>
+                <p>{{ post.date|date('d/m/y') }}</p>
+            </div>
+        {% endfor %}
+
+
+
+
+    </div>
+
+
 
 {% endblock %}

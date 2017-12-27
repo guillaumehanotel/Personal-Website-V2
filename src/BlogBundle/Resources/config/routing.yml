@@ -7,3 +7,12 @@ blog_home:
         _controller: BlogBundle:Blog:index
     requirements:
         page: \d*
+
+
+blog_post:
+    path: /post/{id}
+    defaults:
+        page: 1
+        _controller: BlogBundle:Blog:post
+    requirements:
+        page: \d*

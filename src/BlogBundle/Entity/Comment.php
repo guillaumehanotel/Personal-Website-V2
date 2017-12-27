@@ -11,6 +11,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 class Comment {
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_valid", type="boolean")
+     */
+    private $is_valid;
+
     /**
      * @var string
      *
@@ -157,5 +165,29 @@ class Comment {
      */
     public function getUser() {
         return $this->User;
+    }
+
+    /**
+     * Set isValid
+     *
+     * @param boolean $isValid
+     *
+     * @return Comment
+     */
+    public function setIsValid($isValid)
+    {
+        $this->is_valid = $isValid;
+
+        return $this;
+    }
+
+    /**
+     * Get isValid
+     *
+     * @return boolean
+     */
+    public function getIsValid()
+    {
+        return $this->is_valid;
     }
 }
