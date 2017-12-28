@@ -1,15 +1,18 @@
 {% extends "CVBundle::layout.html.twig" %}
 
 
+
 {% block cv_main %}
 
-    <div id="intro" class="main">
+    {{ include("CVBundle:CV:menu.html.twig") }}
 
+    <div id="intro" class="main l-intro container-fluid">
 
-        {{ content }}
+        <h2 class="col-md-6 offset-md-3 l-intro-title intro-title">A Propos</h2>
 
-
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 l-intro-content intro-content">
+            {{ content }}
+        </div>
     </div>
-
 
 {% endblock %}

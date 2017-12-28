@@ -3,7 +3,6 @@
 \*--------------------------------*/
 
 
-
 body, html {
     height: 100%;
     margin: 0;
@@ -12,19 +11,6 @@ body, html {
 
 body .cv {
     height: 100%;
-}
-
-.cv + footer {
-    color: white;
-    text-align: center;
-    position: relative;
-    bottom: 30px;
-}
-
-
-
-p {
-
 }
 
 ul {
@@ -51,12 +37,13 @@ img.bg-img-ynov {
     Layout    (Positionnement)
 \*--------------------------------*/
 
+/** INDEX CV **/
+
 .l-header-cv {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 250px;
-
 }
 
 .l-header-cv h1 {
@@ -80,17 +67,81 @@ img.bg-img-ynov {
     margin-right: auto;
 }
 
-
 .l-header-cv .nav-header ul li{
     margin-bottom: 15px;
 }
 
+/** MENU CV **/
 
+.l-menu-cv {
+    background-color: rgba(20,20,20,0.9);
+    max-height: 68px;
+}
+
+.l-menu-cv .navbar-collapse .navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    right: 100px;
+}
+
+.l-menu-title {
+    margin-left: 10px;
+}
+
+.l-h1-menu {
+    float: right;
+    margin-bottom: 0px;
+}
+.l-h1-menu span {
+    margin-left: 15px;
+    display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+    .l-menu-title h1 {
+        display: none;
+    }
+    .l-menu-content .navbar-nav {
+        position: relative;
+        left: 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    .l-menu-content .navbar-nav {
+        left: 0;
+    }
+}
+
+/** INTRO CV **/
+
+.l-intro {
+    overflow: auto;
+}
+
+.l-intro-title {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.l-intro-content {
+    margin-top: 50px;
+    padding: 25px;
+}
+
+/** FOOTER CV **/
+
+.l-footer-cv {
+    text-align: center;
+}
 
 
 /*--------------------------------*\
     Module    (Le Style)
 \*--------------------------------*/
+
+/** INDEX CV **/
 
 .cv {
     font-family: 'Poppins', sans-serif;
@@ -105,15 +156,12 @@ img.bg-img-ynov {
     font-weight: 600;
 }
 
-.l-header-cv .nav-header ul li a {
+.header-cv .nav-header ul li a {
     color: white;
-
 }
-
 
 .header-cv .nav-header ul li:hover{
     cursor: pointer;
-
     -moz-transition: all .3s ease-in;
     -o-transition: all .3s ease-in;
     -webkit-transition: all .3s ease-in;
@@ -121,7 +169,33 @@ img.bg-img-ynov {
     background: rgba(100,100,100,0.5);
 }
 
+/** MENU CV **/
 
+.l-h1-menu {
+    font-size: 21px;
+}
+
+/** INTRO CV **/
+
+.intro-title {
+    color: white;
+    font-size: 45px;
+}
+
+.intro-content {
+    color: white;
+    font-size: 18px;
+    text-align: justify;
+    background: rgba(20,20,20,0.7);
+}
+
+/** FOOTER CV **/
+
+.footer-cv {
+    color: white;
+    position: relative;
+    bottom: 30px;
+}
 
 /*--------------------------------*\
     State

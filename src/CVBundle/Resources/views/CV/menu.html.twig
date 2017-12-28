@@ -1,0 +1,43 @@
+<nav class="l-menu-cv menu-cv navbar navbar-expand-md navbar-dark">
+
+    <div class="l-menu-title menu-title">
+        <a class="navbar-brand" href="{{ path('cv_home') }}">
+            <img src="{{ asset('assets/images/GH_500x500.png') }}" width="50" height="50" alt="Logo GH">
+            <h1 class="l-h1-menu"><span>Guillaume</span><span>HANOTEL</span></h1>
+        </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="l-menu-content collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        {% set route = app.request.get('_route') %}
+
+        <div class="navbar-nav mr-auto">
+            <li {{ route == 'cv_intro' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('cv_intro') }}" class="nav-link">Intro</a>
+            </li>
+            <li {{ route == 'cv_projets' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('cv_projets') }}" class="nav-link">Projets</a>
+            </li>
+            <li {{ route == 'cv_experiences' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('cv_experiences') }}" class="nav-link">Expériences</a>
+            </li>
+            <li {{ route == 'cv_competences' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('cv_competences') }}" class="nav-link">Compétences</a>
+            </li>
+            <li {{ route == 'cv_formations' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('cv_formations') }}" class="nav-link">Formation</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('blog_home') }}" class="nav-link">Blog</a>
+            </li>
+            <li {{ route == 'cv_contact' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('cv_contact') }}" class="nav-link">Contact</a>
+            </li>
+        </div>
+    </div>
+</nav>
+

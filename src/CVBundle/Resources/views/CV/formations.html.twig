@@ -3,6 +3,8 @@
 
 {% block cv_main %}
 
+    {{ include("CVBundle:CV:menu.html.twig") }}
+
     <div id="formations" class="main">
 
         {% for formation in formations %}
