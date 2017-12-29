@@ -114,21 +114,34 @@ img.bg-img-ynov {
     }
 }
 
-/** INTRO CV **/
+/** PAGES COMMUNES CV **/
 
-.l-intro {
+.l-page-cv {
     overflow: auto;
 }
 
-.l-intro-title {
+.l-page-cv-title {
     text-align: center;
     margin-top: 150px;
 }
 
-.l-intro-content {
+.l-page-cv-content {
     margin-top: 50px;
     padding: 25px;
 }
+
+
+/** INTRO CV **/
+
+.l-intro {}
+.l-intro-title {}
+.l-intro-content {}
+
+/** REALISATIONS CV **/
+
+.l-projets {}
+.l-realisations-title {}
+.l-realisations-content {}
 
 /** FOOTER CV **/
 
@@ -175,18 +188,109 @@ img.bg-img-ynov {
     font-size: 21px;
 }
 
-/** INTRO CV **/
 
-.intro-title {
+/** PAGES COMMUNES CV **/
+
+.page-cv-title {
     color: white;
     font-size: 45px;
 }
+
+.page-cv-content {
+    background: rgba(20,20,20,0.7);
+}
+
+
+/** INTRO CV **/
+
+.intro-title {}
 
 .intro-content {
     color: white;
     font-size: 18px;
     text-align: justify;
-    background: rgba(20,20,20,0.7);
+}
+
+/** REALISATIONS CV **/
+
+.realisations-title {}
+
+.realisations-content {
+    position: relative;
+    z-index: 20;
+}
+
+
+
+.realisation {
+    text-align: center;
+    color: white;
+    height: 226px;
+    margin-bottom: 20px;
+}
+
+.realisation a {
+    z-index: 100;
+    text-decoration: none;
+    color: white;
+}
+
+.realisation-content {
+    height: 200px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.realisation img {
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #E0E0E0;
+    position: relative;
+    z-index: -8;
+    float: left;
+}
+
+.realisation-back {
+    display: none;
+    height: 200px;
+}
+
+.realisation-back-screen {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background-color: #212121;
+    opacity: 0.8;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+}
+
+.realisation-back-content {
+    float: left;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 15;
+}
+
+.realisation-back-content > * {
+    clear: both;
+}
+
+.realisation h6 {
+    padding-top: 50px;
+    font-weight: 500;
+}
+
+.realisation-back-content p {
+    font-weight: 300;
 }
 
 /** FOOTER CV **/
@@ -204,4 +308,21 @@ img.bg-img-ynov {
 .is-active {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -30,6 +30,8 @@ function redimensionnement(){
     }
 }
 
+
+
 $(document).ready(function(){
 
     // Au chargement initial
@@ -39,5 +41,17 @@ $(document).ready(function(){
     $(window).resize(function(){
         redimensionnement();
     });
+
+
+    $(".realisation-content").mouseenter(function(){
+        $(this).find("div").stop().fadeIn();
+    });
+
+    $(".realisation-content").mouseleave(function(){
+        $(this).find("div").stop().fadeOut();
+    });
+
+
+
 
 });

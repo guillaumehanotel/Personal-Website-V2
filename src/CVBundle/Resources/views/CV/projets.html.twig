@@ -5,19 +5,30 @@
 
     {{ include("CVBundle:CV:menu.html.twig") }}
 
-    <div id="projets" class="main">
+    <div id="projets" class="main l-page-cv l-projets projets container">
 
-        {% for realisation in realisations %}
-            <div class="projet">
-                <p>{{ realisation.link }}</p>
-                <p>{{ realisation.titre }}</p>
-                <p>{{ realisation.description }}</p>
-                <p>{{ realisation.image }}</p>
-            </div>
-        {% endfor %}
+        <h2 class="col-md-6 offset-md-3 l-page-cv-title page-cv-title l-realisations-title realisations-title">Réalisations</h2>
 
+        <div class="row l-realisations-content realisations-content l-page-cv-content page-cv-content">
 
+            {% for realisation in realisations %}
+                <div class="realisation col-sm-12 col-md-6 col-lg-4">
+                    <div class="realisation-content">
+                        <img src="{{ asset(realisation.image) }}" height="200" width="200" alt="img realisation">
+                        <a href="{{ realisation.link }}" target="_blank">
+                            <div class="realisation-back">
+                                <div class="realisation-back-screen"></div>
+                                <div class="realisation-back-content">
+                                    <h6>{{ realisation.titre }}</h6>
+                                    <p>{{ realisation.description }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
 
+        </div>
     </div>
 
 
