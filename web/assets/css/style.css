@@ -2,7 +2,6 @@
     Base
 \*--------------------------------*/
 
-
 body, html {
     height: 100%;
     margin: 0;
@@ -30,8 +29,6 @@ img.bg-img-ynov {
     -webkit-filter: brightness(30%);
     filter: brightness(30%);
 }
-
-
 
 /*--------------------------------*\
     Layout    (Positionnement)
@@ -67,14 +64,14 @@ img.bg-img-ynov {
     margin-right: auto;
 }
 
-.l-header-cv .nav-header ul li{
+.l-header-cv .nav-header ul li {
     margin-bottom: 15px;
 }
 
 /** MENU CV **/
 
 .l-menu-cv {
-    background-color: rgba(20,20,20,0.9);
+    background-color: rgba(20, 20, 20, 0.9);
     max-height: 68px;
 }
 
@@ -93,6 +90,7 @@ img.bg-img-ynov {
     float: right;
     margin-bottom: 0px;
 }
+
 .l-h1-menu span {
     margin-left: 15px;
     display: block;
@@ -102,6 +100,7 @@ img.bg-img-ynov {
     .l-menu-title h1 {
         display: none;
     }
+
     .l-menu-content .navbar-nav {
         position: relative;
         left: 0px;
@@ -130,25 +129,42 @@ img.bg-img-ynov {
     padding: 25px;
 }
 
-
 /** INTRO CV **/
 
-.l-intro {}
-.l-intro-title {}
-.l-intro-content {}
+.l-intro {
+}
+
+.l-intro-title {
+}
+
+.l-intro-content {
+}
 
 /** REALISATIONS CV **/
 
-.l-projets {}
-.l-realisations-title {}
-.l-realisations-content {}
+.l-projets {
+}
+
+.l-realisations-title {
+}
+
+.l-realisations-content {
+}
+
+/** EXPERIENCES CV **/
+
+.l-experiences-title {
+}
+
+.l-experiences-content {
+    padding-top: 40px;
+}
 
 /** FOOTER CV **/
 
 .l-footer-cv {
     text-align: center;
 }
-
 
 /*--------------------------------*\
     Module    (Le Style)
@@ -173,13 +189,13 @@ img.bg-img-ynov {
     color: white;
 }
 
-.header-cv .nav-header ul li:hover{
+.header-cv .nav-header ul li:hover {
     cursor: pointer;
     -moz-transition: all .3s ease-in;
     -o-transition: all .3s ease-in;
     -webkit-transition: all .3s ease-in;
     transition: all .3s ease-in;
-    background: rgba(100,100,100,0.5);
+    background: rgba(100, 100, 100, 0.5);
 }
 
 /** MENU CV **/
@@ -187,7 +203,6 @@ img.bg-img-ynov {
 .l-h1-menu {
     font-size: 21px;
 }
-
 
 /** PAGES COMMUNES CV **/
 
@@ -197,13 +212,13 @@ img.bg-img-ynov {
 }
 
 .page-cv-content {
-    background: rgba(20,20,20,0.7);
+    background: rgba(20, 20, 20, 0.7);
 }
-
 
 /** INTRO CV **/
 
-.intro-title {}
+.intro-title {
+}
 
 .intro-content {
     color: white;
@@ -213,14 +228,13 @@ img.bg-img-ynov {
 
 /** REALISATIONS CV **/
 
-.realisations-title {}
+.realisations-title {
+}
 
 .realisations-content {
     position: relative;
     z-index: 20;
 }
-
-
 
 .realisation {
     text-align: center;
@@ -244,7 +258,7 @@ img.bg-img-ynov {
 }
 
 .realisation img {
-    display:inline-block;
+    display: inline-block;
     width: 200px;
     height: 200px;
     border: 1px solid #E0E0E0;
@@ -291,6 +305,54 @@ img.bg-img-ynov {
 
 .realisation-back-content p {
     font-weight: 300;
+}
+
+/** EXPERIENCES CV **/
+
+.experiences-title {
+}
+
+.experiences-content {
+    background-color: white;
+}
+
+.experience {
+    margin-bottom: 15px;
+}
+
+.experience span.hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    width: 300px;
+}
+
+.experience p:nth-child(-n+4) {
+    line-height: 5px;
+}
+
+.exp-entreprise {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.exp-ville {
+    font-size: 15px;
+    color: grey;
+    margin-left: 5px;
+}
+
+.exp-type_date {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 8px;
+}
+
+.exp-date {
+
 }
 
 /** FOOTER CV **/

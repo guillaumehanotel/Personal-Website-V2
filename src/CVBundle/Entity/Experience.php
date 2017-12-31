@@ -8,10 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Experience
  *
  * @ORM\Table(name="experience")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CVBundle\Repository\ExperienceRepository")
  */
-class Experience
-{
+class Experience {
     /**
      * @var \DateTime
      *
@@ -85,7 +84,6 @@ class Experience
     private $id;
 
 
-
     /**
      * Set dateDebut
      *
@@ -93,8 +91,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setDateDebut($dateDebut)
-    {
+    public function setDateDebut($dateDebut) {
         $this->dateDebut = $dateDebut;
 
         return $this;
@@ -105,8 +102,7 @@ class Experience
      *
      * @return \DateTime
      */
-    public function getDateDebut()
-    {
+    public function getDateDebut() {
         return $this->dateDebut;
     }
 
@@ -117,8 +113,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setDateFin($dateFin)
-    {
+    public function setDateFin($dateFin) {
         $this->dateFin = $dateFin;
 
         return $this;
@@ -129,8 +124,7 @@ class Experience
      *
      * @return \DateTime
      */
-    public function getDateFin()
-    {
+    public function getDateFin() {
         return $this->dateFin;
     }
 
@@ -141,8 +135,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setVille($ville)
-    {
+    public function setVille($ville) {
         $this->ville = $ville;
 
         return $this;
@@ -153,8 +146,7 @@ class Experience
      *
      * @return string
      */
-    public function getVille()
-    {
+    public function getVille() {
         return $this->ville;
     }
 
@@ -165,8 +157,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setIntitule($intitule)
-    {
+    public function setIntitule($intitule) {
         $this->intitule = $intitule;
 
         return $this;
@@ -177,8 +168,7 @@ class Experience
      *
      * @return string
      */
-    public function getIntitule()
-    {
+    public function getIntitule() {
         return $this->intitule;
     }
 
@@ -189,8 +179,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setEntreprise($entreprise)
-    {
+    public function setEntreprise($entreprise) {
         $this->entreprise = $entreprise;
 
         return $this;
@@ -201,8 +190,7 @@ class Experience
      *
      * @return string
      */
-    public function getEntreprise()
-    {
+    public function getEntreprise() {
         return $this->entreprise;
     }
 
@@ -213,8 +201,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setType($type)
-    {
+    public function setType($type) {
         $this->type = $type;
 
         return $this;
@@ -225,8 +212,7 @@ class Experience
      *
      * @return string
      */
-    public function getType()
-    {
+    public function getType() {
         return $this->type;
     }
 
@@ -237,8 +223,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -249,8 +234,7 @@ class Experience
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -261,8 +245,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setOrdre($ordre)
-    {
+    public function setOrdre($ordre) {
         $this->ordre = $ordre;
 
         return $this;
@@ -273,8 +256,7 @@ class Experience
      *
      * @return integer
      */
-    public function getOrdre()
-    {
+    public function getOrdre() {
         return $this->ordre;
     }
 
@@ -285,8 +267,7 @@ class Experience
      *
      * @return Experience
      */
-    public function setCodepostal($codepostal)
-    {
+    public function setCodepostal($codepostal) {
         $this->codepostal = $codepostal;
 
         return $this;
@@ -297,8 +278,7 @@ class Experience
      *
      * @return integer
      */
-    public function getCodepostal()
-    {
+    public function getCodepostal() {
         return $this->codepostal;
     }
 
@@ -307,8 +287,7 @@ class Experience
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 }

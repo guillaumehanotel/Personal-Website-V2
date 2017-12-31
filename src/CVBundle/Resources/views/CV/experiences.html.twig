@@ -5,25 +5,40 @@
 
     {{ include("CVBundle:CV:menu.html.twig") }}
 
-    <div id="experiences" class="main">
+    <div id="experiences" class="main l-page-cv l-expereriences experiences container">
 
-        {% for experience in experiences %}
-            <div class="experience">
-                <p>{{ experience.dateDebut|date('d/m/y') }}</p>
-                <p>{{ experience.dateFin|date('d/m/y') }}</p>
-                <p>{{ experience.ville }}</p>
-                <p>{{ experience.intitule }}</p>
-                <p>{{ experience.entreprise }}</p>
-                <p>{{ experience.type }}</p>
-                <p>{{ experience.description }}</p>
-                <p>{{ experience.ordre }}</p>
-                <p>{{ experience.codepostal }}</p>
-            </div>
-        {% endfor %}
+        <h2 class="col-md-6 offset-md-3 l-page-cv-title page-cv-title l-experiences-title experiences-title">Expériences professionnelles</h2>
 
-        
+        <div class="row l-experiences-content experiences-content l-page-cv-content">
+
+            {% for experience in experiences %}
+
+                <div class="experience">
+                    <p>
+                        <span class="exp-entreprise">{{ experience.entreprise }}</span>
+                        <span class="exp-ville">
+                            {{ experience.ville }}
+                            ({{ experience.codepostal }})
+                        </span>
+                    </p>
+                    <span class="hr"></span>
+
+                    <p class="exp-type_date">{{ experience.type }}
+                        {{ date_diff(experience.dateDebut, experience.dateFin) }} -
+                        <span class="exp-date">
+                            {{ experience.dateDebut|localizeddate('long', 'none', 'fr_FR') }} au
+                            {{ experience.dateFin|localizeddate('long', 'none', 'fr_FR') }}
+                        </span>
+
+                    </p>
+                    <p>{{ experience.intitule }}</p>
+                    <p>{{ experience.description|nl2br }}</p>
+                </div>
+
+            {% endfor %}
 
 
+        </div>
 
 
     </div>
