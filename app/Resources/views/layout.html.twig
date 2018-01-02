@@ -20,9 +20,7 @@
 
 <body>
 
-
-
-<div class="login">
+<div id="login">
     {% block fos_user_content %}
     {% endblock fos_user_content %}
 </div>
@@ -42,6 +40,12 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 {% endblock %}
+
+<div class="admin-access">
+    <a href="{{ path('sonata_admin_dashboard') }}">
+        <img src="{{ asset('assets/images/admin.png') }}" alt="" width="30">
+    </a>
+</div>
 
 </body>
 </html>

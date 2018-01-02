@@ -9,7 +9,7 @@ body, html {
 }
 
 body .cv {
-    height: 100%;
+    min-height: 93%;
 }
 
 ul {
@@ -33,6 +33,21 @@ img.bg-img-ynov {
 /*--------------------------------*\
     Layout    (Positionnement)
 \*--------------------------------*/
+
+.admin-access {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.admin-access a {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: none;
+}
 
 /** INDEX CV **/
 
@@ -121,7 +136,7 @@ img.bg-img-ynov {
 
 .l-page-cv-title {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 120px;
 }
 
 .l-page-cv-content {
@@ -173,7 +188,34 @@ img.bg-img-ynov {
 
 .l-footer-cv {
     text-align: center;
+    padding-top: 20px;
 }
+
+/** LOGIN **/
+
+.login {
+    margin-top: 80px;
+}
+
+.login-header {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .login-header img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.login-remember {
+    text-align: center;
+}
+
+.login-btn {
+    text-align: center;
+}
+
 
 /*--------------------------------*\
     Module    (Le Style)
@@ -303,6 +345,10 @@ img.bg-img-ynov {
     z-index: 15;
 }
 
+.realisation-back-content p {
+    font-size: 13px;
+}
+
 .realisation-back-content > * {
     clear: both;
 }
@@ -319,10 +365,12 @@ img.bg-img-ynov {
 /** EXPERIENCES CV **/
 
 .experiences-title {
+
 }
 
 .experiences-content {
     background-color: white;
+    background-color: rgb(240,240,240);
 }
 
 .experience {
@@ -372,7 +420,6 @@ img.bg-img-ynov {
 .competence {
     text-align: center;
     color: lightgrey;
-
 }
 
 .competence img {
@@ -387,14 +434,83 @@ img.bg-img-ynov {
     transform: scale(1.1);
 }
 
+/** FORMATIONS CV **/
+.formations-title{}
+
+.formations-content{
+    margin-top: 50px;
+}
+
+.formation {
+    color: black;
+    width:100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.formation-date {
+    float: left;
+    font-size: 30px;
+}
+
+.formation-date span {
+    display: block;
+    color: white;
+}
+
+.formation-date .hr-date {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #ccc;
+    padding: 0;
+    width: 60px;
+}
+
+.formation-content {
+    float: left;
+    background-color: rgba(240,240,240,0.8);
+   /* background-color: rgb(240,240,240);*/
+    padding: 20px;
+}
+
+.formation-content > * {
+    clear: both;
+}
+
+.formation-intitule {
+    color: black;
+    color: #0076F5;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.formation-intitule:hover {
+    text-decoration: none;
+}
+
+.formation-lieu {
+    font-size: 15px;
+}
+
+.formation-ville{
+    font-style: italic;
+}
 
 /** FOOTER CV **/
 
 .footer-cv {
     color: white;
-    position: relative;
-    bottom: 30px;
 }
+
+
+/** LOGIN **/
+
+
+
+
+
+
 
 /*--------------------------------*\
     State
@@ -405,7 +521,9 @@ img.bg-img-ynov {
 }
 
 
-
+.label-hide {
+    display: none;
+}
 
 
 

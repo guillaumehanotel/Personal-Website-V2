@@ -52,6 +52,14 @@ $(document).ready(function(){
     });
 
 
+    $(".admin-access").mouseenter(function () {
+        $(".admin-access a").show();
+    })
+
+    $(".admin-access").mouseleave(function () {
+        $(".admin-access a").hide();
+    })
+
 
 
 });
