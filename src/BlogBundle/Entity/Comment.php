@@ -174,8 +174,7 @@ class Comment {
      *
      * @return Comment
      */
-    public function setIsValid($isValid)
-    {
+    public function setIsValid($isValid) {
         $this->is_valid = $isValid;
 
         return $this;
@@ -186,8 +185,13 @@ class Comment {
      *
      * @return boolean
      */
-    public function getIsValid()
-    {
+    public function getIsValid() {
         return $this->is_valid;
     }
+
+    public function __toString() {
+        return $this->content;
+    }
+
+
 }

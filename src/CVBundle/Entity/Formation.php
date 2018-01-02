@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="formation")
  * @ORM\Entity(repositoryClass="CVBundle\Repository\FormationRepository")
  */
-class Formation
-{
+class Formation {
     /**
      * @var \DateTime
      *
@@ -85,7 +84,6 @@ class Formation
     private $id;
 
 
-
     /**
      * Set anneeDebut
      *
@@ -93,8 +91,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setAnneeDebut($anneeDebut)
-    {
+    public function setAnneeDebut($anneeDebut) {
         $this->anneeDebut = $anneeDebut;
 
         return $this;
@@ -105,8 +102,7 @@ class Formation
      *
      * @return \DateTime
      */
-    public function getAnneeDebut()
-    {
+    public function getAnneeDebut() {
         return $this->anneeDebut;
     }
 
@@ -117,8 +113,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setAnneeFin($anneeFin)
-    {
+    public function setAnneeFin($anneeFin) {
         $this->anneeFin = $anneeFin;
 
         return $this;
@@ -129,8 +124,7 @@ class Formation
      *
      * @return \DateTime
      */
-    public function getAnneeFin()
-    {
+    public function getAnneeFin() {
         return $this->anneeFin;
     }
 
@@ -141,8 +135,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setAnneeCourante($anneeCourante)
-    {
+    public function setAnneeCourante($anneeCourante) {
         $this->anneeCourante = $anneeCourante;
 
         return $this;
@@ -153,8 +146,7 @@ class Formation
      *
      * @return string
      */
-    public function getAnneeCourante()
-    {
+    public function getAnneeCourante() {
         return $this->anneeCourante;
     }
 
@@ -165,8 +157,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setIntitule($intitule)
-    {
+    public function setIntitule($intitule) {
         $this->intitule = $intitule;
 
         return $this;
@@ -177,8 +168,7 @@ class Formation
      *
      * @return string
      */
-    public function getIntitule()
-    {
+    public function getIntitule() {
         return $this->intitule;
     }
 
@@ -189,8 +179,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setEcole($ecole)
-    {
+    public function setEcole($ecole) {
         $this->ecole = $ecole;
 
         return $this;
@@ -201,8 +190,7 @@ class Formation
      *
      * @return string
      */
-    public function getEcole()
-    {
+    public function getEcole() {
         return $this->ecole;
     }
 
@@ -213,8 +201,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setVille($ville)
-    {
+    public function setVille($ville) {
         $this->ville = $ville;
 
         return $this;
@@ -225,8 +212,7 @@ class Formation
      *
      * @return string
      */
-    public function getVille()
-    {
+    public function getVille() {
         return $this->ville;
     }
 
@@ -237,8 +223,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setCodepostal($codepostal)
-    {
+    public function setCodepostal($codepostal) {
         $this->codepostal = $codepostal;
 
         return $this;
@@ -249,8 +234,7 @@ class Formation
      *
      * @return integer
      */
-    public function getCodepostal()
-    {
+    public function getCodepostal() {
         return $this->codepostal;
     }
 
@@ -261,8 +245,7 @@ class Formation
      *
      * @return Formation
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -273,8 +256,7 @@ class Formation
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -285,10 +267,8 @@ class Formation
      *
      * @return Formation
      */
-    public function setLien($lien)
-    {
+    public function setLien($lien) {
         $this->lien = $lien;
-
         return $this;
     }
 
@@ -297,8 +277,7 @@ class Formation
      *
      * @return string
      */
-    public function getLien()
-    {
+    public function getLien() {
         return $this->lien;
     }
 
@@ -307,8 +286,12 @@ class Formation
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
+
+    public function __toString() {
+        return $this->intitule." ".$this->anneeCourante." année";
+    }
+
 }

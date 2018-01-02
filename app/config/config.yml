@@ -85,4 +85,29 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
-        # ...
+        sonata.admin.block.search_result:
+            contexts: [admin]
+
+
+sonata_admin:
+    dashboard:
+        groups:
+            app.admin.group.cv:
+                keep_open:            true
+                label:                CV
+                label_catalogue:      CVBundle
+                items:
+                    - cv.admin.competence
+                    - cv.admin.experience
+                    - cv.admin.formation
+                    - cv.admin.intro
+                    - cv.admin.realisation
+
+            app.admin.group.blog:
+                keep_open:            true
+                label:                Blog
+                label_catalogue:      BlogBundle
+                items:
+                    - blog.admin.user
+                    - blog.admin.post
+                    - blog.admin.comment

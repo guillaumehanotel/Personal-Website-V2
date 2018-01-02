@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="intro")
  * @ORM\Entity
  */
-class Intro
-{
+class Intro {
     /**
      * @var string
      *
@@ -36,7 +35,6 @@ class Intro
     private $id;
 
 
-
     /**
      * Set titre
      *
@@ -44,8 +42,7 @@ class Intro
      *
      * @return Intro
      */
-    public function setTitre($titre)
-    {
+    public function setTitre($titre) {
         $this->titre = $titre;
 
         return $this;
@@ -56,8 +53,7 @@ class Intro
      *
      * @return string
      */
-    public function getTitre()
-    {
+    public function getTitre() {
         return $this->titre;
     }
 
@@ -68,8 +64,7 @@ class Intro
      *
      * @return Intro
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -80,8 +75,7 @@ class Intro
      *
      * @return string
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -90,8 +84,17 @@ class Intro
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
+
+    public function __toString() {
+       return $this->titre;
+    }
+
+
 }
+
+
+
+

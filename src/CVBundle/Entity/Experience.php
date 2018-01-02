@@ -290,4 +290,10 @@ class Experience {
     public function getId() {
         return $this->id;
     }
+
+    public function __toString() {
+        return $this->entreprise." - ".$this->intitule;
+    }
+
+
 }

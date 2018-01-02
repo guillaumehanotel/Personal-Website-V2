@@ -221,6 +221,10 @@ img.bg-img-ynov {
     Module    (Le Style)
 \*--------------------------------*/
 
+.skin-black .sidebar-menu > li > .treeview-menu {
+    background: #222D32;
+}
+
 /** INDEX CV **/
 
 .cv {
@@ -435,9 +439,9 @@ img.bg-img-ynov {
 }
 
 /** FORMATIONS CV **/
-.formations-title{}
+.formations-title {}
 
-.formations-content{
+.formations-content {
     margin-top: 50px;
 }
 
@@ -506,6 +510,42 @@ img.bg-img-ynov {
 
 /** LOGIN **/
 
+/** ADMIN **/
+
+.navbar-static-top {
+    max-height: 50px;
+}
+
+.navbar-custom-menu {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #222D32;
+    color: white;
+}
+
+.navbar-custom-menu a {
+    color: white;
+}
+
+.navbar-custom-menu .admin-menu-link {
+    display: inline-block;
+    width: 72px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+}
+
+.vr-link {
+    position: relative;
+    left: 76px;
+    top: 7px;
+    border-right: 1px solid rgba(120,120,120,0.3);
+    height: 35px;
+    width: 0px;
+    float: left;
+}
 
 
 

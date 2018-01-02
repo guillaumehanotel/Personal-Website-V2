@@ -35,6 +35,7 @@ file that was distributed with this source code.
         {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
             <link rel="stylesheet" href="{{ asset(stylesheet) }}">
         {% endfor %}
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
     {% endblock %}
 
     {% block javascripts %}
@@ -92,7 +93,8 @@ file that was distributed with this source code.
 
 
             {% if _title is not empty %}
-                {{ _title|striptags|raw }}
+                {# { _title|striptags|raw }} #}
+                {{ 'Dashboard' }}
             {% else %}
                 {% if action is defined %}
                     -
@@ -141,6 +143,7 @@ file that was distributed with this source code.
                     </a>
                 {% endspaceless %}
             {% endblock %}
+
             {% block sonata_nav %}
                 <nav class="navbar navbar-static-top" role="navigation">
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -190,31 +193,17 @@ file that was distributed with this source code.
                     </div>
 
                     {% block sonata_top_nav_menu %}
-                        {% if app.user and is_granted(sonata_admin.adminPool.getOption('role_admin')) %}
-                            <div class="navbar-custom-menu">
-                                <ul class="nav navbar-nav">
-                                    {% block sonata_top_nav_menu_add_block %}
-                                        <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                <i class="fa fa-plus-square fa-fw" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                            </a>
-                                            {% include sonata_admin.adminPool.getTemplate('add_block') %}
-                                        </li>
-                                    {% endblock %}
-                                    {% block sonata_top_nav_menu_user_block %}
-                                        <li class="dropdown user-menu">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                <i class="fa fa-user fa-fw" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-user">
-                                                {% include sonata_admin.adminPool.getTemplate('user_block') %}
-                                            </ul>
-                                        </li>
-                                    {% endblock %}
-                                </ul>
+                        <div class="navbar-custom-menu">
+                            <div class="vr-link"></div>
+                            <div class="admin-menu-link">
+                                <a href="{{ path('cv_home') }}">CV</a>
                             </div>
-                        {% endif %}
+                            <div class="admin-menu-link">
+                                <a href="{{ path('blog_home') }}">Blog</a>
+                            </div>
+                        </div>
                     {% endblock %}
+
                 </nav>
             {% endblock sonata_nav %}
         </header>
@@ -238,11 +227,15 @@ file that was distributed with this source code.
                             </form>
                         {% endblock sonata_sidebar_search %}
 
-                        {% block side_bar_before_nav %} {% endblock %}
+                        {% block side_bar_before_nav %}
+                        {% endblock %}
+
                         {% block side_bar_nav %}
                             {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
                         {% endblock side_bar_nav %}
+
                     {% endblock sonata_side_nav %}
+
                 </section>
             </aside>
         {% endblock sonata_left_side %}
@@ -256,8 +249,7 @@ file that was distributed with this source code.
                             {% if _navbar_title is not empty
                                 or _tab_menu is not empty
                                 or _actions is not empty
-                                or _list_filters_actions is not empty
-                            %}
+                                or _list_filters_actions is not empty %}
                                 <nav class="navbar navbar-default" role="navigation">
                                     <div class="container-fluid">
                                         {% block tab_menu_navbar_header %}
@@ -288,7 +280,8 @@ file that was distributed with this source code.
                                                     <ul class="nav navbar-nav navbar-right">
                                                         {% if _actions|split('</a>')|length > 2 %}
                                                             <li class="dropdown sonata-actions">
-                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>
+                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }}
+                                                                    <b class="caret"></b></a>
                                                                 <ul class="dropdown-menu" role="menu">
                                                                     {{ _actions|raw }}
                                                                 </ul>
@@ -356,7 +349,14 @@ file that was distributed with this source code.
     {% block bootlint %}
         {# Bootlint - https://github.com/twbs/bootlint#in-the-browser #}
         <script type="text/javascript">
-            javascript:(function(){var s=document.createElement("script");s.onload=function(){bootlint.showLintReportForCurrentDocument([], {hasProblems: false, problemFree: false});};s.src="https://maxcdn.bootstrapcdn.com/bootlint/latest/bootlint.min.js";document.body.appendChild(s)})();
+            javascript:(function () {
+                var s = document.createElement("script");
+                s.onload = function () {
+                    bootlint.showLintReportForCurrentDocument([], {hasProblems: false, problemFree: false});
+                };
+                s.src = "https://maxcdn.bootstrapcdn.com/bootlint/latest/bootlint.min.js";
+                document.body.appendChild(s)
+            })();
         </script>
     {% endblock %}
 {% endif %}
