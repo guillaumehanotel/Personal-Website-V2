@@ -216,6 +216,29 @@ img.bg-img-ynov {
     text-align: center;
 }
 
+/** CONTACT **/
+
+.l-contact-title {}
+
+.l-contact-content {}
+
+.submit-form {
+    text-align: center;
+}
+
+.submit-form input {
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba(120,120,120,0.3);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 
 /*--------------------------------*\
     Module    (Le Style)
@@ -547,7 +570,17 @@ img.bg-img-ynov {
     float: left;
 }
 
+/** CONTACT **/
 
+
+.flash-contact {
+    text-align: center;
+}
+
+.form-errors {
+    text-align: center;
+    color: white;
+}
 
 
 

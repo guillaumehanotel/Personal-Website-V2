@@ -7,6 +7,7 @@ use CVBundle\Entity\Experience;
 use CVBundle\Entity\Formation;
 use CVBundle\Entity\Intro;
 use CVBundle\Entity\Realisation;
+use CVBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,10 +82,48 @@ class CVController extends Controller {
 
     public function contactAction(Request $request){
 
-        return $this->render('CVBundle:CV:contact.html.twig', []);
+        $form = $this->createForm(ContactType::class);
+
+        $form->handleRequest($request);
+            if($form->isValid() && $form->isSubmitted()){
+                if($this->sendEmail($form->getData())){
+                    $this->addFlash('success', 'Votre message a bien été envoyé !');
+                    return $this->redirect($request->getUri());
+                } else {
+                    $this->addFlash('danger', 'Erreur lors de l\'envoi du message');
+                }
+            }
+
+        return $this->render('CVBundle:CV:contact.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
 
+    private function sendEmail($data){
+
+        $mailer = $this->get('mailer');
+        $myContactMail = $this->container->getParameter('mailer_user');
+
+        $message = new \Swift_Message();
+        $message->setSubject($data['sujet'])
+                ->setFrom($myContactMail)
+                ->setTo($myContactMail)
+                ->setBody(
+                    "Message de : ".$data['nom']
+                    ."\n\n" .
+                    $data['message'].
+                    "\n\nContact Mail : ".$data["email"]
+                );
+
+        $message->getHeaders()->addIdHeader('Message-ID', "b3eb7202-d2f1-11e4-b9d6-1681e6b88ec1@domain.com");
+        $message->getHeaders()->addTextHeader('MIME-Version', '1.0');
+        $message->getHeaders()->addTextHeader('X-Mailer', 'PHP v' . phpversion());
+        $message->getHeaders()->addParameterizedHeader('Content-type', 'text/html', ['charset' => 'utf-8']);
+
+        return $mailer->send($message);
+
+    }
 
 
 
