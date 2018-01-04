@@ -1,0 +1,35 @@
+<nav class="l-menu-blog menu-blog navbar navbar-expand-md navbar-dark">
+
+    <div class="l-menu-title menu-title">
+        <a class="navbar-brand" href="{{ path('blog_home') }}">
+            <img src="{{ asset('assets/images/GH_500x500.png') }}" width="50" height="50" alt="Logo GH">
+            <h1 class="l-h1-menu"><span>Guillaume</span><span>HANOTEL</span></h1>
+        </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        {% set route = app.request.get('_route') %}
+
+        <div class="navbar-nav mr-auto">
+            <li {{ route == 'blog_home' ? 'class="active"' }} class="nav-item">
+                <a href="{{ path('blog_home') }}" class="nav-link">Accueil</a>
+            </li>
+        </div>
+    </div>
+
+    <div class="right">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                <a href="{{ path('cv_home') }}" class="nav-link">Site CV</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+</nav>

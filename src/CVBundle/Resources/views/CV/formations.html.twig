@@ -1,6 +1,5 @@
 {% extends "CVBundle::layout.html.twig" %}
 
-
 {% block cv_main %}
 
     {{ include("CVBundle:CV:menu.html.twig") }}
@@ -27,18 +26,12 @@
                         <p class="formation-lieu">{{ formation.ecole }} -
                             <span class="formation-ville">{{ formation.ville }} ({{ formation.codepostal }})</span>
                         </p>
-                        <p class="formation-description">{{ formation.description|nl2br }}</p>
+                        <p class="formation-description">{{ formation.description|puce('•')|nl2br }}</p>
                     </div>
-
 
                 </div>
             {% endfor %}
-
-
         </div>
-
-
     </div>
-
 
 {% endblock %}

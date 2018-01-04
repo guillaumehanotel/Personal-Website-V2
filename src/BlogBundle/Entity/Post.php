@@ -9,7 +9,7 @@ use BlogBundle\Entity\User;
  * Post
  *
  * @ORM\Table(name="post", indexes={@ORM\Index(name="FK_post_id_user", columns={"id_user"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\PostRepository")
  */
 class Post {
     /**
@@ -51,6 +51,15 @@ class Post {
      * })
      */
     private $User;
+
+
+
+    /**
+     * Post constructor.
+     */
+    public function __construct() {
+        $this->date = new \DateTime();
+    }
 
 
     /**

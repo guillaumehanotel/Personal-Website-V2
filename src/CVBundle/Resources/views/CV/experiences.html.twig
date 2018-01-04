@@ -32,15 +32,12 @@
 
                     </p>
                     <p>{{ experience.intitule }}</p>
-                    <p>{{ experience.description|nl2br }}</p>
+                    <p>{{ experience.description|puce('•')|nl2br }}</p>
                 </div>
 
             {% endfor %}
 
-
         </div>
-
-
     </div>
 
 {% endblock %}

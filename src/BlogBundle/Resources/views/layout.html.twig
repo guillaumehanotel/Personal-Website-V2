@@ -8,7 +8,7 @@
 
     <div class="blog">
 
-        <h1><a href="{{ path('blog_home') }}">Blog</a></h1>
+       <img class="bg-img-texture" src="{{ asset('assets/images/texture.png') }}" alt="background texture blog">
 
         {% block blog_main %}
 
@@ -19,5 +19,8 @@
         {% endblock %}
 
     </div>
+
+    <footer class="l-footer-cv footer-cv">© {{ "now"|date("Y") }} | Tous droits réservés - Guillaume HANOTEL</footer>
+
 
 {% endblock %}

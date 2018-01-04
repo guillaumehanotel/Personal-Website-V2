@@ -3,20 +3,22 @@
 
 {% block blog_main %}
 
-    <h2>Index Blog</h2>
+    {{ include("BlogBundle:Blog:menu.html.twig") }}
 
+    <div id="posts" class="main l-page-blog l-posts posts container">
 
-    <div id="posts" class="main">
+        <h2 class="col-md-10 offset-md-1 l-blog-title blog-title">BLOG - Guillaume HANOTEL</h2>
 
-        {% for post in posts %}
-            <div class="post">
-                <a href="{{ path('blog_post', {'id' : post.id}) }}">{{ post.title }}</a>
-                <p>{{ post.content|truncate(300, true) }}</p>
-                <p>{{ post.date|date('d/m/y') }}</p>
-            </div>
-        {% endfor %}
-
-
+        <div class="l-posts-content posts-content col-md-9">
+            {% for post in posts %}
+                <div class="post">
+                    <a class="post-preview-title" href="{{ path('blog_post', {'id' : post.id}) }}">{{ post.title }}</a>
+                    <p class="post-preview-date">{{ post.date|localizeddate('long', 'none', 'fr_FR') }}</p>
+                    <span class="hr"></span>
+                    <p class="post-preview-content">{{ post.content|truncate(200, true) }}</p>
+                </div>
+            {% endfor %}
+        </div>
 
 
     </div>

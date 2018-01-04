@@ -1,7 +1,7 @@
 
-function redimensionnement(){
+function redimensionnement($image){
 
-    var $image = $('img.bg-img-ynov');
+    //var $image = $('img.bg-img-ynov');
     var image_width = $image.width();
     var image_height = $image.height();
 
@@ -34,12 +34,17 @@ function redimensionnement(){
 
 $(document).ready(function(){
 
+    var $background_cv = $('img.bg-img-ynov');
+    var $background_blog = $('img.bg-img-texture');
+
     // Au chargement initial
-    redimensionnement();
+    redimensionnement($background_blog);
+    redimensionnement($background_cv);
 
     // En cas de redimensionnement de la fenêtre
     $(window).resize(function(){
-        redimensionnement();
+        redimensionnement($background_blog);
+        redimensionnement($background_cv);
     });
 
 

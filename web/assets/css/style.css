@@ -12,6 +12,10 @@ body .cv {
     min-height: 93%;
 }
 
+body .blog {
+    min-height: 93%;
+}
+
 ul {
     list-style: none;
 }
@@ -28,6 +32,20 @@ img.bg-img-ynov {
 
     -webkit-filter: brightness(30%);
     filter: brightness(30%);
+}
+
+
+
+img.bg-img-texture {
+
+    width: 100%;
+    height: auto;
+
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -100;
+
 }
 
 /*--------------------------------*\
@@ -83,6 +101,31 @@ img.bg-img-ynov {
     margin-bottom: 15px;
 }
 
+/** MENU BLOG **/
+
+.l-menu-blog {
+    background-color: rgba(30, 30, 30, 1);
+    max-height: 68px;
+    padding-right: 0px;
+}
+
+.l-menu-blog .navbar-collapse .navbar-nav {
+    margin-left: 100px;
+}
+
+.l-menu-blog .right .nav li a{
+    height: 68px;
+    line-height: 68px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    background-color: rgb(20,20,20);
+    font-weight: bold;
+}
+
+
 /** MENU CV **/
 
 .l-menu-cv {
@@ -111,12 +154,14 @@ img.bg-img-ynov {
     display: block;
 }
 
+
+
 @media (min-width: 768px) and (max-width: 1100px) {
-    .l-menu-title h1 {
+    .l-menu-cv .l-menu-title h1 {
         display: none;
     }
 
-    .l-menu-content .navbar-nav {
+    .l-menu-cv .l-menu-content .navbar-nav {
         position: relative;
         left: 0px;
     }
@@ -174,6 +219,7 @@ img.bg-img-ynov {
 .l-experiences-content {
     padding-top: 40px;
 }
+
 
 /** COMPETENCES CV **/
 
@@ -240,6 +286,22 @@ img.bg-img-ynov {
 }
 
 
+/** INDEX BLOG **/
+
+.l-posts-content {
+    margin-top: 70px;
+}
+
+.l-posts-content .post {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.l-blog-title {
+    margin-top: 50px;
+}
+
+
 /*--------------------------------*\
     Module    (Le Style)
 \*--------------------------------*/
@@ -275,6 +337,47 @@ img.bg-img-ynov {
     transition: all .3s ease-in;
     background: rgba(100, 100, 100, 0.5);
 }
+
+/** INDEX BLOG **/
+
+.blog {
+    font-family: 'Poppins', sans-serif;
+}
+
+.blog-title {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.posts-content .post {
+    background-color: rgba(230,230,230,0.8);
+    background-color: white;
+}
+
+.post-preview-title {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.post-preview-title:hover {
+    text-decoration: none;
+    color: #0076cd;
+    transition: all .3s ease-in-out;
+}
+
+.post-preview-date {
+    color: grey;
+    font-size: 13px;
+    position: relative;
+    top: 5px;
+}
+
+
+/** MENU BLOG **/
+
 
 /** MENU CV **/
 
@@ -404,7 +507,7 @@ img.bg-img-ynov {
     margin-bottom: 15px;
 }
 
-.experience span.hr {
+span.hr {
     display: block;
     height: 1px;
     border: 0;
@@ -533,6 +636,14 @@ img.bg-img-ynov {
 
 /** LOGIN **/
 
+.login {
+    color: white;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
 /** ADMIN **/
 
 .navbar-static-top {
@@ -592,6 +703,7 @@ img.bg-img-ynov {
 .is-active {
 
 }
+
 
 
 .label-hide {
