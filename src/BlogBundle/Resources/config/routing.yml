@@ -6,13 +6,13 @@ blog_home:
         page: 1
         _controller: BlogBundle:Blog:index
     requirements:
-        page: \d*
+        page: \d+
 
 
 blog_post:
     path: /post/{id}
     defaults:
-        page: 1
+        id: 1
         _controller: BlogBundle:Blog:post
     requirements:
-        page: \d*
+        id: \d+

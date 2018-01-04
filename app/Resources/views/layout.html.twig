@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>{% block title %}Guillaume HANOTEL{% endblock %}</title>
-
     <link rel="icon" type="image/png" href="{{ asset('assets/images/GH_32x32.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
@@ -17,21 +15,22 @@
     {% endblock %}
 </head>
 
-
 <body>
-
 <div id="login">
     {% block fos_user_content %}
     {% endblock fos_user_content %}
 </div>
 
-
 {% block body %}
-
-
 {% endblock %}
 
+<div class="right admin-access">
+    <a href="{{ path('sonata_admin_dashboard') }}">
+        <img src="{{ asset('assets/images/admin.png') }}" alt="" width="30">
+    </a>
+</div>
 
+<footer class="l-footer-cv footer-cv">© {{ "now"|date("Y") }} | Tous droits réservés - Guillaume HANOTEL</footer>
 
 {% block javascripts %}
     <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
@@ -40,12 +39,6 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 {% endblock %}
-
-<div class="admin-access">
-    <a href="{{ path('sonata_admin_dashboard') }}">
-        <img src="{{ asset('assets/images/admin.png') }}" alt="" width="30">
-    </a>
-</div>
 
 </body>
 </html>

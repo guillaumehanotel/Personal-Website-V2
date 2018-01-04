@@ -9,14 +9,26 @@ use BlogBundle\Entity\Post;
 
 class BlogController extends Controller {
 
-    public function indexAction(Request $request) {
+    public function indexAction(Request $request, int $page) {
+
+        // get nbPost parameter
+        $nbPostPerPage = $this->container->getParameter('nb_post_per_page');
 
         $doctrine = $this->getDoctrine();
         $postManager = $doctrine->getRepository(Post::class);
-        $posts = $postManager->findAll();
 
+        $posts = $postManager->findAllPaginate($page, $nbPostPerPage);
+
+        $pagination = [
+          'page' => $page,
+          'nbPages' => ceil(count($posts) / $nbPostPerPage),
+          'nomRoute' => 'blog_home',
+          'paramsRoute' => []
+        ];
+        
         return $this->render('BlogBundle:Blog:index.html.twig', [
-            'posts' => $posts
+            'posts' => $posts,
+            'pagination' => $pagination
         ]);
 
     }

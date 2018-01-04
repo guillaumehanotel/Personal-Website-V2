@@ -47,7 +47,7 @@ class Comment {
      *
      * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Post")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_post", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_post", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $Post;

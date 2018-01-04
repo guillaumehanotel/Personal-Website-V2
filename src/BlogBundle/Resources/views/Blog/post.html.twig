@@ -5,18 +5,31 @@
 
     {{ include("BlogBundle:Blog:menu.html.twig") }}
 
-    <div id="post-show">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.content|nl2br }}</p>
-        <p>{{ post.date|date('d/m/y') }}</p>
+    <div id="post" class="main l-page-blog l-post post container">
+
+        <h2 class="col-md-10 offset-md-1 l-blog-title blog-title">BLOG - Guillaume HANOTEL</h2>
+
+        <article class="l-post-content post-content col-md-9">
+            <h3 class="post-title">{{ post.title }}</h3>
+            <p class="post-date"><img class="img-clock" src="{{ asset('assets/images/clock.png') }}" alt="image clock" width="13">{{ post.date|localizeddate('long', 'none', 'fr_FR') }}</p>
+            <span class="hr"></span>
+            <p class="post-content">{{ post.content|nl2br }}</p>
+        </article>
+
+        <div id="l-comments-content post-comments">
+            {% for comment in comments %}
+                {{ comment.content }}
+                {{ comment.date|date('d/m/y H:i') }}
+                {{ comment.user.firstname }}
+                <br>
+            {% endfor %}
+        </div>
+
     </div>
 
-    {% for comment in comments %}
-        {{ comment.content }}
-        {{ comment.date|date('d/m/y H:i') }}
-        {{ comment.user.firstname }}
-        <br>
-    {% endfor %}
+
+
+
 
 
 
