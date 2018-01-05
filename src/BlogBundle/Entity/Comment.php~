@@ -22,7 +22,7 @@ class Comment {
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255, nullable=true)
+     * @ORM\Column(name="content", type="text", length=2000, nullable=true)
      */
     private $content;
 
@@ -36,18 +36,25 @@ class Comment {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer")su
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
      * @var \BlogBundle\Entity\Post
      *
      * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Post")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_post", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_post", referencedColumnName="id", onDelete="CASCADE")
      * })
      */
     private $Post;
@@ -166,4 +173,32 @@ class Comment {
     public function getUser() {
         return $this->User;
     }
+
+    /**
+     * Set isValid
+     *
+     * @param boolean $isValid
+     *
+     * @return Comment
+     */
+    public function setIsValid($isValid) {
+        $this->is_valid = $isValid;
+
+        return $this;
+    }
+
+    /**
+     * Get isValid
+     *
+     * @return boolean
+     */
+    public function getIsValid() {
+        return $this->is_valid;
+    }
+
+    public function __toString() {
+        return $this->content;
+    }
+
+
 }

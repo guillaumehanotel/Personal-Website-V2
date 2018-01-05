@@ -290,6 +290,13 @@ img.bg-img-texture {
     font-size: 16px;
 }
 
+.l-contact-content .submit-form input:hover {
+    background-color: rgba(70,70,70,0.4);
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
 
 /** LAYOUT INDEX BLOG **/
 
@@ -314,6 +321,71 @@ img.bg-img-texture {
 }
 
 
+/** LAYOUT COMMENTS BLOG **/
+
+.l-post-comments {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: white;
+}
+
+.l-comment {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.form-comment-title {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.form-comment-name input {
+    padding-left: 10px;
+    max-width: 280px;
+}
+
+.form-comment textarea {
+    padding: 10px;
+    width: 70%;
+}
+
+
+
+/** STYLE COMMENTS BLOG **/
+
+.comment {
+    background-color: #F4F4F4;
+    border: 1px solid rgba(180,180,180,0.3);
+}
+
+.comment-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.comment-date {
+    color: grey;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.comment-content {
+    margin-bottom: 0;
+}
+
+.form-comment .submit-form input {
+    background-color: rgba(20,20,20,0.7);
+}
+
+.form-comment .submit-form input:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
 
 
 /*--------------------------------*\
@@ -692,7 +764,7 @@ span.hr {
 }
 
 .navbar-custom-menu {
-    width: 150px;
+    width: 230px;
     height: 50px;
     line-height: 50px;
     background-color: #222D32;
@@ -701,6 +773,12 @@ span.hr {
 
 .navbar-custom-menu a {
     color: white;
+}
+
+.navbar-custom-menu img {
+    position: relative;
+    bottom: 3px;
+    left: 6px;
 }
 
 .navbar-custom-menu .admin-menu-link {
@@ -714,12 +792,19 @@ span.hr {
 
 .vr-link {
     position: relative;
-    left: 76px;
     top: 7px;
     border-right: 1px solid rgba(120,120,120,0.3);
     height: 35px;
     width: 0px;
     float: left;
+}
+
+.vr-link-1 {
+    left: 76px;
+}
+
+.vr-link-2 {
+    left: 152px;
 }
 
 /** STYLE CONTACT **/

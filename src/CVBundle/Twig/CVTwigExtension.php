@@ -18,6 +18,12 @@ class CVTwigExtension extends \Twig_Extension {
         ];
     }
 
+    /**
+     * @param $string
+     * @param $puce
+     * @return string
+     * Remplace les tirets d'une liste par le caractère en paramètre
+     */
     public function puce($string, $puce) {
         $tab_string = str_split($string);
         for ($i = 0; $i < count($tab_string); $i++) {
@@ -45,7 +51,7 @@ class CVTwigExtension extends \Twig_Extension {
     }
 
     /**
-     * Fonction à renvoyer une durée arrondie entre la date début et la date de fin
+     * Fonction qui renvoie une durée arrondie entre la date début et la date de fin
      */
     public function date_diff(\DateTime $begin, \DateTime $end): string {
 

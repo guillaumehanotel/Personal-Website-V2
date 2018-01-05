@@ -26,7 +26,7 @@ class CVController extends Controller {
     }
 
 
-    public function introAction(Request $request){
+    public function introAction(Request $request) {
         $doctrine = $this->getDoctrine();
         $introManager = $doctrine->getRepository(Intro::class);
         $intro = $introManager->find(1);
@@ -37,7 +37,7 @@ class CVController extends Controller {
     }
 
 
-    public function projetAction(Request $request){
+    public function projetAction(Request $request) {
         $doctrine = $this->getDoctrine();
         $realisationManager = $doctrine->getRepository(Realisation::class);
         $realisations = $realisationManager->findAll();
@@ -48,7 +48,7 @@ class CVController extends Controller {
     }
 
 
-    public function experienceAction(Request $request){
+    public function experienceAction(Request $request) {
         $doctrine = $this->getDoctrine();
         $experienceManager = $doctrine->getRepository(Experience::class);
         $experiences = $experienceManager->findAll();
@@ -59,7 +59,7 @@ class CVController extends Controller {
     }
 
 
-    public function competenceAction(Request $request){
+    public function competenceAction(Request $request) {
         $doctrine = $this->getDoctrine();
         $competenceManager = $doctrine->getRepository(Competence::class);
         $competences = $competenceManager->findAll();
@@ -70,7 +70,7 @@ class CVController extends Controller {
     }
 
 
-    public function formationAction(Request $request){
+    public function formationAction(Request $request) {
         $doctrine = $this->getDoctrine();
         $formationManager = $doctrine->getRepository(Formation::class);
         $formations = $formationManager->findAll();
@@ -80,19 +80,20 @@ class CVController extends Controller {
         ]);
     }
 
-    public function contactAction(Request $request){
+    public function contactAction(Request $request) {
 
         $form = $this->createForm(ContactType::class);
 
         $form->handleRequest($request);
-            if($form->isValid() && $form->isSubmitted()){
-                if($this->sendEmail($form->getData())){
-                    $this->addFlash('success', 'Votre message a bien été envoyé !');
-                    return $this->redirect($request->getUri());
-                } else {
-                    $this->addFlash('danger', 'Erreur lors de l\'envoi du message');
-                }
+
+        if ($form->isValid() && $form->isSubmitted()) {
+            if ($this->sendEmail($form->getData())) {
+                $this->addFlash('success', 'Votre message a bien été envoyé !');
+                return $this->redirect($request->getUri());
+            } else {
+                $this->addFlash('danger', 'Erreur lors de l\'envoi du message');
             }
+        }
 
         return $this->render('CVBundle:CV:contact.html.twig', [
             'form' => $form->createView()
@@ -100,21 +101,21 @@ class CVController extends Controller {
     }
 
 
-    private function sendEmail($data){
+    private function sendEmail($data) {
 
         $mailer = $this->get('mailer');
         $myContactMail = $this->container->getParameter('mailer_user');
 
         $message = new \Swift_Message();
         $message->setSubject($data['sujet'])
-                ->setFrom($myContactMail)
-                ->setTo($myContactMail)
-                ->setBody(
-                    "Message de : ".$data['nom']
-                    ."\n\n" .
-                    $data['message'].
-                    "\n\nContact Mail : ".$data["email"]
-                );
+            ->setFrom($myContactMail)
+            ->setTo($myContactMail)
+            ->setBody(
+                "Message de : " . $data['nom']
+                . "\n\n" .
+                $data['message'] .
+                "\n\nContact Mail : " . $data["email"]
+            );
 
         $message->getHeaders()->addIdHeader('Message-ID', "b3eb7202-d2f1-11e4-b9d6-1681e6b88ec1@domain.com");
         $message->getHeaders()->addTextHeader('MIME-Version', '1.0');
@@ -124,8 +125,6 @@ class CVController extends Controller {
         return $mailer->send($message);
 
     }
-
-
 
 
 }

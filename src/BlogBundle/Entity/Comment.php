@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Comment
  *
  * @ORM\Table(name="comment", indexes={@ORM\Index(name="FK_comment_id_user", columns={"id_user"}), @ORM\Index(name="FK_comment_id_post", columns={"id_post"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\CommentRepository")
  */
 class Comment {
 
@@ -22,7 +22,7 @@ class Comment {
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255, nullable=true)
+     * @ORM\Column(name="content", type="text", length=2000, nullable=true)
      */
     private $content;
 
@@ -41,6 +41,13 @@ class Comment {
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
 
     /**
      * @var \BlogBundle\Entity\Post
@@ -67,6 +74,7 @@ class Comment {
      */
     public function __construct() {
         $this->date = new \DateTime();
+        $this->is_valid = false;
     }
 
 
@@ -190,8 +198,32 @@ class Comment {
     }
 
     public function __toString() {
-        return $this->content;
+        return $this->content.'';
     }
 
 
+
+    /**
+     * Set name.
+     *
+     * @param string|null $name
+     *
+     * @return Comment
+     */
+    public function setName($name = null)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }
