@@ -18,10 +18,12 @@ class CVController extends Controller {
 
         $doctrine = $this->getDoctrine();
         $introManager = $doctrine->getRepository(Intro::class);
-        $intro = $introManager->find(1);
+        $intro = $introManager->findOneBy([]);
+
+        $titre = (is_null($intro)) ? "[Pas de titre disponible]" : $intro->getTitre();
 
         return $this->render('CVBundle:CV:index.html.twig', [
-            'titre' => $intro->getTitre()
+            'titre' => $titre
         ]);
     }
 
@@ -29,10 +31,11 @@ class CVController extends Controller {
     public function introAction(Request $request) {
         $doctrine = $this->getDoctrine();
         $introManager = $doctrine->getRepository(Intro::class);
-        $intro = $introManager->find(1);
+        $intro = $introManager->findOneBy([]);
+        $content = (is_null($intro)) ? "[Pas de contenu disponible]" : $intro->getContent();
 
         return $this->render('CVBundle:CV:intro.html.twig', [
-            'content' => $intro->getContent()
+            'content' => $content
         ]);
     }
 

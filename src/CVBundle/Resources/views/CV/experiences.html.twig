@@ -1,41 +1,42 @@
 {% extends "CVBundle::layout.html.twig" %}
 
-
 {% block cv_main %}
 
     {{ include("CVBundle:CV:menu.html.twig") }}
 
     <div id="experiences" class="main l-page-cv l-expereriences experiences container">
-
         <h2 class="col-md-6 offset-md-3 l-page-cv-title page-cv-title l-experiences-title experiences-title">Expériences professionnelles</h2>
-
         <div class="row l-experiences-content experiences-content l-page-cv-content">
 
-            {% for experience in experiences %}
+            {% if experiences is not empty %}
+                {% for experience in experiences %}
 
-                <div class="experience">
-                    <p>
-                        <span class="exp-entreprise">{{ experience.entreprise }}</span>
-                        <span class="exp-ville">
-                            {{ experience.ville }}
-                            ({{ experience.codepostal }})
+                    <div class="experience">
+                        <p>
+                            <span class="exp-entreprise">{{ experience.entreprise }}</span>
+                            <span class="exp-ville">
+                            {{ experience.ville }}({{ experience.codepostal }})
                         </span>
-                    </p>
-                    <span class="hr"></span>
+                        </p>
+                        <span class="hr"></span>
 
-                    <p class="exp-type_date">{{ experience.type }}
-                        {{ date_diff(experience.dateDebut, experience.dateFin) }} -
-                        <span class="exp-date">
+                        <p class="exp-type_date">{{ experience.type }}
+                            {{ date_diff(experience.dateDebut, experience.dateFin) }} -
+                            <span class="exp-date">
                             {{ experience.dateDebut|localizeddate('long', 'none', 'fr_FR') }} au
-                            {{ experience.dateFin|localizeddate('long', 'none', 'fr_FR') }}
+                                {{ experience.dateFin|localizeddate('long', 'none', 'fr_FR') }}
                         </span>
 
-                    </p>
-                    <p>{{ experience.intitule }}</p>
-                    <p>{{ experience.description|puce('•')|nl2br }}</p>
-                </div>
+                        </p>
+                        <p>{{ experience.intitule }}</p>
+                        <p>{{ experience.description|puce('•')|nl2br }}</p>
+                    </div>
 
-            {% endfor %}
+                {% endfor %}
+
+            {% else %}
+                <p>[Aucun Contenu pour le moment]</p>
+            {% endif %}
 
         </div>
     </div>

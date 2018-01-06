@@ -106,29 +106,8 @@ class User extends FOSUser {
     }
 
     public function __toString() {
-        return $this->username . '';
+        return $this->username.'';
     }
 
 
-    /**
-     * Set avatar.
-     *
-     * @param string $avatar
-     *
-     * @return User
-     */
-    public function setAvatar($avatar) {
-        $this->avatar = $avatar;
-
-        return $this;
-    }
-
-    /**
-     * Get avatar.
-     *
-     * @return string
-     */
-    public function getAvatar() {
-        return $this->avatar;
-    }
 }

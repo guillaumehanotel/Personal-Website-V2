@@ -15,6 +15,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            // Mes Bundles
             new BlogBundle\BlogBundle(),
             new \CVBundle\CVBundle(),
 
@@ -28,7 +30,11 @@ class AppKernel extends Kernel
             // FOSUserBundle
             new FOS\UserBundle\FOSUserBundle(),
 
+            // Fixtures
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Webonaute\DoctrineFixturesGeneratorBundle\DoctrineFixturesGeneratorBundle(),
 
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 
         ];
 

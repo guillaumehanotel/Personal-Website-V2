@@ -27,9 +27,28 @@
             <span class="hr"></span>
             <p class="post-content">{{ post.content|nl2br }}</p>
 
-            <div>
-                <p>signature</p>
+            <span class="hr"></span>
+
+            <div class="post-signature">
+
+                <div class="signature-img">
+                    <img width="80" src="{{ asset(post.user.avatar) }}" alt="">
+                </div>
+
+                <div class="signature-content">
+                    <p class="signature-nom">{{ post.user.firstname ~ ' ' ~ post.user.lastname }}</p>
+                    <p class="social-medias">
+                        <a target="_blank" href="https://github.com/guillaumehanotel"><img width="20" src="{{ asset('assets/images/github-logo.png') }}" alt="logo github"></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/guillaume-hanotel-538b81106/"><img width="20" src="{{ asset('assets/images/linkedin-logo.png') }}" alt="logo linkedin"></a>
+                        <a target="_blank" href="https://twitter.com/GHanosql"><img width="20" src="{{ asset('assets/images/twitter-logo.png') }}" alt="logo twitter"></a>
+                        <a target="_blank" href="https://www.facebook.com/guillaume.hanotel"><img width="22" src="{{ asset('assets/images/facebook-logo.png') }}" alt="logo facebook"></a>
+                    </p>
+                    <p class="signature-titre">{{ intro_titre|title }}</p>
+                </div>
+
+
             </div>
+
         </article>
 
 
@@ -39,7 +58,10 @@
                 <div class="l-comments-content comments-content">
                     {% for comment in comments %}
                         <div class="l-comment comment">
+
+                            {% set is_user = comment.user is not null %}
                             <p>
+                                <img class="comment-avatar" width=50" src="{{ asset((is_user and comment.user.avatar is not null) ? comment.user.avatar : 'assets/images/user-default.png') }}" alt="avatar default">
                                 <span class="comment-name">{{ comment.name }}</span>
                                 <span class="comment-date">{{ comment.date|localizeddate('long', 'none', 'fr_FR') }}</span>
                             </p>

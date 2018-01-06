@@ -352,6 +352,59 @@ img.bg-img-texture {
 }
 
 
+/** STYLE POST BLOG **/
+
+.post .hr {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 84%;
+    margin-left: 8%;
+}
+
+.post-signature {
+
+}
+
+.signature-img {
+    float: left;
+    margin-right: 20px;
+}
+
+
+
+.signature-img img {
+    border-radius: 50px;
+}
+
+.signature-content .signature-nom {
+    font-weight: bold;
+}
+
+.signature-content .signature-titre {
+    font-size: 13px;
+}
+
+.signature-content p {
+    margin-bottom: 0;
+}
+
+.signature-content .social-medias a{
+    margin-right: 5px;
+}
+
+.signature-content .social-medias a:nth-child(1) img {
+    margin-right: 1px;
+}
+.signature-content .social-medias a:nth-child(3) img{
+    position: relative;
+    top: 1px;
+}
+.signature-content .social-medias a:nth-child(4) img{
+    position: relative;
+    right: 3px;
+}
+
+
 
 /** STYLE COMMENTS BLOG **/
 
@@ -360,9 +413,14 @@ img.bg-img-texture {
     border: 1px solid rgba(180,180,180,0.3);
 }
 
+.comment-avatar {
+    border-radius: 50px;
+}
+
 .comment-name {
     font-weight: bold;
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .comment-date {
@@ -371,7 +429,17 @@ img.bg-img-texture {
     margin-left: 10px;
 }
 
+.comment-name, .comment-date {
+    position: relative;
+    bottom: 10px;
+}
+
 .comment-content {
+    margin-bottom: 0;
+    margin-left: 65px;
+}
+
+.comment p:first-child {
     margin-bottom: 0;
 }
 

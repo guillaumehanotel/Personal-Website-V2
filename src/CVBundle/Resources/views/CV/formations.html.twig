@@ -5,32 +5,35 @@
     {{ include("CVBundle:CV:menu.html.twig") }}
 
     <div id="formations" class="main l-page-cv l-formations formations container">
-
         <h2 class="col-md-6 offset-md-3 l-page-cv-title page-cv-title l-formations-title formations-title">Formations</h2>
-
         <div class="row l-formations-content formations-content">
 
-            {% for formation in formations %}
-                <div class="formation">
+            {% if formations is not empty %}
 
-                    <div class="formation-date col-md-2 offset-md-1">
-                        <p>
-                            <span>{{ formation.anneeDebut|date('Y') }}</span>
-                            <span class="hr-date"></span>
-                            <span>{{ formation.anneeFin|date('Y') }}</span>
-                        </p>
+                {% for formation in formations %}
+                    <div class="formation">
+                        <div class="formation-date col-md-2 offset-md-1">
+                            <p>
+                                <span>{{ formation.anneeDebut|date('Y') }}</span>
+                                <span class="hr-date"></span>
+                                <span>{{ formation.anneeFin|date('Y') }}</span>
+                            </p>
+                        </div>
+
+                        <div class="formation-content col-md-9">
+                            <a class="formation-intitule" href="{{ formation.lien }}" target="_blank">{{ formation.intitule }} {{ formation.anneeCourante }} année</a>
+                            <p class="formation-lieu">{{ formation.ecole }} -
+                                <span class="formation-ville">{{ formation.ville }} ({{ formation.codepostal }})</span>
+                            </p>
+                            <p class="formation-description">{{ formation.description|puce('•')|nl2br }}</p>
+                        </div>
                     </div>
 
-                    <div class="formation-content col-md-9">
-                        <a class="formation-intitule" href="{{ formation.lien }}" target="_blank">{{ formation.intitule }} {{ formation.anneeCourante }} année</a>
-                        <p class="formation-lieu">{{ formation.ecole }} -
-                            <span class="formation-ville">{{ formation.ville }} ({{ formation.codepostal }})</span>
-                        </p>
-                        <p class="formation-description">{{ formation.description|puce('•')|nl2br }}</p>
-                    </div>
+                {% endfor %}
 
-                </div>
-            {% endfor %}
+            {% else %}
+                <p class="text-white">[Aucun Contenu pour le moment]</p>
+            {% endif %}
         </div>
     </div>
 

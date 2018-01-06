@@ -21,11 +21,11 @@ class PostAdmin extends AbstractAdmin {
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
-        $datagridMapper->add('title')->add('content');
+        $datagridMapper->add('title')->add('content')->add('date');
     }
 
     protected function configureListFields(ListMapper $listMapper) {
-        $listMapper->addIdentifier('title')->add('content');
+        $listMapper->addIdentifier('title')->add('content')->add('date');
     }
 
 }

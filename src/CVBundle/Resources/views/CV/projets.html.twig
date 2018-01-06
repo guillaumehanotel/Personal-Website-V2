@@ -11,23 +11,28 @@
 
         <div class="row l-realisations-content realisations-content l-page-cv-content page-cv-content">
 
-            {% for realisation in realisations %}
-                <div class="realisation col-sm-12 col-md-6 col-lg-4">
-                    <div class="realisation-content">
-                        <img src="{{ asset(realisation.image) }}" height="200" width="200" alt="img realisation">
-                        <a href="{{ realisation.link }}" target="_blank">
-                            <div class="realisation-back">
-                                <div class="realisation-back-screen"></div>
-                                <div class="realisation-back-content">
-                                    <h6>{{ realisation.titre }}</h6>
-                                    <p>{{ realisation.description }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            {% endfor %}
+            {% if realisations is not empty %}
 
+                {% for realisation in realisations %}
+                    <div class="realisation col-sm-12 col-md-6 col-lg-4">
+                        <div class="realisation-content">
+                            <img src="{{ asset(realisation.image) }}" height="200" width="200" alt="img realisation">
+                            <a href="{{ realisation.link }}" target="_blank">
+                                <div class="realisation-back">
+                                    <div class="realisation-back-screen"></div>
+                                    <div class="realisation-back-content">
+                                        <h6>{{ realisation.titre }}</h6>
+                                        <p>{{ realisation.description }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <p class="text-white">[Aucun Contenu pour le moment]</p>
+            {% endif %}
         </div>
     </div>
 

@@ -3,12 +3,11 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Comment;
+use BlogBundle\Entity\Post;
+use CVBundle\Entity\Intro;
 use BlogBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
-use BlogBundle\Entity\Post;
 
 class BlogController extends Controller {
 
@@ -46,6 +45,10 @@ class BlogController extends Controller {
     public function postAction(Request $request, int $id) {
 
         $doctrine = $this->getDoctrine();
+
+        $introManager = $doctrine->getRepository(Intro::class);
+        $intro_titre = $introManager->findOneBy([])->getTitre();
+
         $postRepository = $doctrine->getRepository(Post::class);
         $post = $postRepository->find($id);
 
@@ -81,7 +84,8 @@ class BlogController extends Controller {
         return $this->render('BlogBundle:Blog:post.html.twig', [
             'post' => $post,
             'comments' => $comments,
-            'comment_form' => $comment_form->createView()
+            'comment_form' => $comment_form->createView(),
+            'intro_titre' => $intro_titre
         ]);
 
     }
