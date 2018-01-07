@@ -32,7 +32,7 @@
             <div class="post-signature">
 
                 <div class="signature-img">
-                    <img width="80" src="{{ asset(post.user.avatar) }}" alt="">
+                    <img width="80" src="{{ asset(post.user.imagePath) }}" alt="">
                 </div>
 
                 <div class="signature-content">
@@ -61,8 +61,8 @@
 
                             {% set is_user = comment.user is not null %}
                             <p>
-                                <img class="comment-avatar" width=50" src="{{ asset((is_user and comment.user.avatar is not null) ? comment.user.avatar : 'assets/images/user-default.png') }}" alt="avatar default">
-                                <span class="comment-name">{{ comment.name }}</span>
+                                <img class="comment-avatar" width=50" src="{{ asset((is_user and comment.user.imagePath is not null) ? comment.user.imagePath : 'assets/images/user-default.png') }}" alt="avatar default">
+                                <span class="comment-name">{{ (comment.name is not empty) ? comment.name : 'Anonyme' }}</span>
                                 <span class="comment-date">{{ comment.date|localizeddate('long', 'none', 'fr_FR') }}</span>
                             </p>
                             <p class="comment-content">

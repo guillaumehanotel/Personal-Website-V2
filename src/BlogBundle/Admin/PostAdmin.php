@@ -11,6 +11,12 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class PostAdmin extends AbstractAdmin {
 
+    public function getDashboardActions() {
+        $actions = parent::getDashboardActions();
+        unset($actions['list']);
+        return $actions;
+    }
+
 
     protected function configureFormFields(FormMapper $formMapper) {
 
@@ -21,11 +27,36 @@ class PostAdmin extends AbstractAdmin {
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
-        $datagridMapper->add('title')->add('content')->add('date');
+        $datagridMapper
+            ->add('title')
+            ->add('content')
+            ->add('date');
     }
 
     protected function configureListFields(ListMapper $listMapper) {
-        $listMapper->addIdentifier('title')->add('content')->add('date');
+        $listMapper
+            ->add('title', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'BlogBundle\Entity\Post'
+                ])
+            ->add('content', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'BlogBundle\Entity\Post'
+                ])
+            ->add('date', 'date',
+                [
+                    'editable' => true,
+                    'class' => 'BlogBundle\Entity\Post'
+                ])
+            ->add('_action', 'actions',
+                [
+                    'actions' => [
+                        'edit' => [],
+                        'delete' => []
+                    ]
+                ]);
     }
 
 }

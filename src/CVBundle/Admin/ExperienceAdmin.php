@@ -20,18 +20,24 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class ExperienceAdmin extends AbstractAdmin {
 
+    public function getDashboardActions() {
+        $actions = parent::getDashboardActions();
+        unset($actions['list']);
+        return $actions;
+    }
+
 
     protected function configureFormFields(FormMapper $formMapper) {
 
         $formMapper
             ->add('dateDebut', DateType::class, ['label' => 'Date Début'])
             ->add('dateFin', DateType::class, ['label' => 'Date Fin'])
-            ->add('ville', TextType::class, ['label' => 'Ville'])
-            ->add('codepostal', NumberType::class, ['label' => 'Code postal'])
+            ->add('type', TextType::class, ['label' => 'Type'])
             ->add('intitule', TextType::class, ['label' => 'Intitulé'])
             ->add('description', TextareaType::class, ['label' => 'Description'])
             ->add('entreprise', TextType::class, ['label' => 'Entreprise'])
-            ->add('type', TextType::class, ['label' => 'Type'])
+            ->add('ville', TextType::class, ['label' => 'Ville'])
+            ->add('codepostal', NumberType::class, ['label' => 'Code postal'])
             ->add('ordre', NumberType::class, ['label' => 'Ordre']);
 
     }
@@ -52,15 +58,54 @@ class ExperienceAdmin extends AbstractAdmin {
 
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
-            ->addIdentifier('dateDebut')
-            ->add('dateFin')
-            ->add('ville')
-            ->add('codepostal')
-            ->add('intitule')
-            ->add('description')
-            ->add('entreprise')
-            ->add('type')
-            ->add('ordre');
+            ->add('dateDebut', 'date',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('dateFin', 'date',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('ville', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('codepostal', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('intitule', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('description', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('entreprise', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('type', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Experience'
+                ])
+            ->add('ordre')
+            ->add('_action', 'actions',
+                [
+                    'actions' => [
+                        'edit' => [],
+                        'delete' => []
+                    ]
+                ]);
 
     }
 

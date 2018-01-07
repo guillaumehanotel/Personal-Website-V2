@@ -16,7 +16,7 @@ cache-clear: var/cache ## 'Vide' le cache
 	@php bin/console cache:clear
 	@sudo chmod -R 777 var/cache
 
-install: cache-clear vendor composer.lock ## Installe le projet
+install: cache-clear vendor composer.lock ## Installe le projet (penser à chown database_files)
 
 proxy: ## Lance browser-sync (live reload)
 	browser-sync start --proxy "websiteperso.local/app_dev.php/" --files="web/assets/css/*.css, web/assets/js/*.js, src/**/**/*.php, src/**/Resources/views/**/*.twig, app/Resources/FOSUserBundle/views/Security/*.twig, app/Resources/SonataAdminBundle/views/*.twig, app/Resources/views/*.twig" --no-notify

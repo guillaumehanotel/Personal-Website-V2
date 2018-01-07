@@ -13,6 +13,12 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class FormationAdmin extends AbstractAdmin {
 
+    public function getDashboardActions() {
+        $actions = parent::getDashboardActions();
+        unset($actions['list']);
+        return $actions;
+    }
+
 
     protected function configureFormFields(FormMapper $formMapper) {
 
@@ -45,15 +51,58 @@ class FormationAdmin extends AbstractAdmin {
 
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
-            ->addIdentifier('anneeDebut')
-            ->add('anneeFin')
-            ->add('anneeCourante')
-            ->add('intitule')
-            ->add('ecole')
-            ->add('ville')
-            ->add('codepostal')
-            ->add('description')
-            ->add('lien');
+            ->add('anneeDebut', 'date',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('anneeFin', 'date',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('anneeCourante', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('intitule', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('ecole', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('ville', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('codepostal', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('description', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('lien', 'text',
+                [
+                    'editable' => true,
+                    'class' => 'CVBundle\Entity\Formation'
+                ])
+            ->add('_action', 'actions',
+                [
+                    'actions' => [
+                        'edit' => [],
+                        'delete' => []
+                    ]
+                ]);
     }
 
 }

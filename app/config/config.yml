@@ -8,6 +8,9 @@ imports:
 parameters:
     locale: fr
     nb_post_per_page: 4
+    app.path.competence_image: '/assets/database_files/competences'
+    app.path.realisation_image: '/assets/database_files/realisations'
+    app.path.user_avatar: '/assets/database_files/avatar'
 
 framework:
     #esi: ~
@@ -101,17 +104,25 @@ sonata_block:
 
 sonata_admin:
     dashboard:
+        blocks:
+            -
+                position: top
+                class: col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2
+                type: sonata.admin.block.admin_list
+
+
+
         groups:
             app.admin.group.cv:
                 keep_open:            true
                 label:                CV
                 label_catalogue:      CVBundle
                 items:
-                    - cv.admin.competence
-                    - cv.admin.experience
-                    - cv.admin.formation
                     - cv.admin.intro
                     - cv.admin.realisation
+                    - cv.admin.experience
+                    - cv.admin.competence
+                    - cv.admin.formation
 
             app.admin.group.blog:
                 keep_open:            true
@@ -121,3 +132,29 @@ sonata_admin:
                     - blog.admin.user
                     - blog.admin.post
                     - blog.admin.comment
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        competence_image:
+            uri_prefix: '%app.path.competence_image%'
+            upload_destination: '%kernel.project_dir%/web/assets/database_files/competences'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        realisation_image:
+            uri_prefix: '%app.path.realisation_image%'
+            upload_destination: '%kernel.project_dir%/web/assets/database_files/realisations'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        user_avatar:
+            uri_prefix: '%app.path.user_avatar%'
+            upload_destination: '%kernel.project_dir%/web/assets/database_files/avatar'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+

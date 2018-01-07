@@ -36,7 +36,8 @@
         "symfony/symfony": "3.3.*",
         "twig/extensions": "^1.5",
         "twig/twig": "^1.0||^2.0",
-        "webonaute/doctrine-fixtures-generator-bundle": "dev-master"
+        "webonaute/doctrine-fixtures-generator-bundle": "dev-master",
+        "vich/uploader-bundle": "^1.6"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",

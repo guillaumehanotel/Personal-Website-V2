@@ -15,6 +15,12 @@ use FOS\UserBundle\Model\UserManagerInterface;
 
 class UserAdmin extends AbstractAdmin {
 
+    public function getDashboardActions() {
+        $actions = parent::getDashboardActions();
+        unset($actions['list']);
+        return $actions;
+    }
+
 
     // protected $formOptions = ['validation_groups' => ['Profile']];
 
@@ -49,7 +55,9 @@ class UserAdmin extends AbstractAdmin {
             ->add('lastname', TextType::class, ['label' => 'Nom'])
             ->add('username', TextType::class, ['label' => 'Pseudo'])
             ->add('email', EmailType::class, ['label' => 'Email'])
-            ->add('password', 'repeated', $passwordoptions);
+            ->add('password', 'repeated', $passwordoptions)
+            ->add('imageFile', 'file', ['label' => 'Avatar', 'required' => false]);
+
         //->add('password', PasswordType::class, ['label' => 'Mot de Passe', 'required' => false]);
         //->add('roles', 'choice', array('choices'=>$this->getConfigurationPool()->getContainer()->getParameter('config.sonata_admin.security.roles')));
 
@@ -67,12 +75,23 @@ class UserAdmin extends AbstractAdmin {
     }
 
     protected function configureListFields(ListMapper $listMapper) {
-        $listMapper->addIdentifier('username')
+        $listMapper
+            ->add('username')
             ->add('lastname')
             ->add('firstname')
-            ->add('email')
-            ->add('password')
-            ->add('roles');
+            ->add('email', 'email',
+                [
+                    'editable' => true,
+                    'class' => 'BlogBundle\Entity\User'
+                ])
+            ->add('imagePath')
+            ->add('_action', 'actions',
+                [
+                    'actions' => [
+                        'edit' => [],
+                        'delete' => []
+                    ]
+                ]);
     }
 
 

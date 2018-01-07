@@ -88,8 +88,8 @@ class Intro {
         return $this->id;
     }
 
-    public function __toString() {
-       return $this->titre;
+    public function __toString() : string {
+       return (string)$this->titre;
     }
 
 

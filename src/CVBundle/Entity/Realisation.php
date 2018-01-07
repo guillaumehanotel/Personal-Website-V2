@@ -3,12 +3,16 @@
 namespace CVBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use CVBundle\Lib\Globals;
 
 /**
  * Realisation
  *
  * @ORM\Table(name="realisation")
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Realisation {
     /**
@@ -33,13 +37,6 @@ class Realisation {
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     */
-    private $image;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -47,6 +44,97 @@ class Realisation {
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="realisation_image", fileNameProperty="imageName", size="imageSize")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imagePath;
+
+
+    /**
+     * @ORM\Column(type="integer")
+     *
+     * @var integer
+     */
+    private $imageSize;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     */
+    public function setImageFile(?File $image = null): void {
+        $this->imageFile = $image;
+
+        $path = $this->getUploadedRealisationImagePath();
+        $this->setImagePath($path.'/'.$this->getImageName());
+
+        if (null !== $image) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+
+    public function getImageFile(): ?File {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string {
+        return $this->imageName;
+    }
+
+    public function setImageSize(?int $imageSize): void {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int {
+        return $this->imageSize;
+    }
+
+    public function setImagePath(?string $imagePath): void {
+        $this->imagePath = $imagePath;
+    }
+
+    public function getImagePath(): ?string {
+        return $this->imagePath;
+    }
+
+
+
+    public function getUploadedRealisationImagePath(){
+        return Globals::getUploadRealisationDir();
+    }
 
 
     /**
@@ -116,28 +204,6 @@ class Realisation {
     }
 
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Realisation
-     */
-    public function setImage($image) {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage() {
-        return $this->image;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -147,7 +213,7 @@ class Realisation {
     }
 
     public function __toString() {
-        return $this->titre;
+        return (string)$this->titre;
     }
 
 

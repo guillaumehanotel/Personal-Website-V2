@@ -68,6 +68,17 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+
+    cv.admin.intro:
+        class: CVBundle\Admin\IntroAdmin
+        arguments: [~, CVBundle\Entity\Intro, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Intro
+              group: "CV"
+        public: true
+
     cv.admin.competence:
         class: CVBundle\Admin\CompetenceAdmin
         arguments: [~, CVBundle\Entity\Competence, ~]
@@ -77,8 +88,6 @@ services:
               label: Competence
               group: "CV"
         public: true
-
-
 
     cv.admin.experience:
         class: CVBundle\Admin\ExperienceAdmin
@@ -91,7 +100,6 @@ services:
 
         public: true
 
-
     cv.admin.formation:
         class: CVBundle\Admin\FormationAdmin
         arguments: [~, CVBundle\Entity\Formation, ~]
@@ -99,16 +107,6 @@ services:
             - name: sonata.admin
               manager_type: orm
               label: Formation
-              group: "CV"
-        public: true
-
-    cv.admin.intro:
-        class: CVBundle\Admin\IntroAdmin
-        arguments: [~, CVBundle\Entity\Intro, ~]
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              label: Intro
               group: "CV"
         public: true
 
