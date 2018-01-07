@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: fr
     nb_post_per_page: 4
+    nb_last_post: 3
     app.path.competence_image: '/assets/database_files/competences'
     app.path.realisation_image: '/assets/database_files/realisations'
     app.path.user_avatar: '/assets/database_files/avatar'

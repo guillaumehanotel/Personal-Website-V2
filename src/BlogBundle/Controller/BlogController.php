@@ -46,8 +46,8 @@ class BlogController extends Controller {
 
         $doctrine = $this->getDoctrine();
 
-        $introManager = $doctrine->getRepository(Intro::class);
-        $intro_titre = $introManager->findOneBy([])->getTitre();
+        $introRepository = $doctrine->getRepository(Intro::class);
+        $intro_titre = $introRepository->findOneBy([])->getTitre();
 
         $postRepository = $doctrine->getRepository(Post::class);
         $post = $postRepository->find($id);
@@ -89,6 +89,24 @@ class BlogController extends Controller {
         ]);
 
     }
+
+
+    public function lastPostAction(Request $request){
+
+        $nbLastPost = $this->container->getParameter('nb_last_post');
+
+        $doctrine = $this->getDoctrine();
+        $postRepository = $doctrine->getRepository(Post::class);
+        $lastPosts = $postRepository->findLastPosts($nbLastPost);
+
+        return $this->render('BlogBundle:Blog:last_posts.html.twig', [
+            'last_posts' => $lastPosts
+        ]);
+
+    }
+
+
+
 
 
 }

@@ -10,17 +10,25 @@
         <h2 class="col-md-10 offset-md-1 l-blog-title blog-title">BLOG - Guillaume HANOTEL</h2>
 
         {% if posts is not empty %}
-            <div class="l-posts-content posts-content col-md-9">
-                {% for post in posts %}
-                    <article class="post">
-                        <a class="post-preview-title" href="{{ path('blog_post', {'id' : post.id}) }}">{{ post.title }}</a>
-                        <p class="post-preview-date">
-                            <img class="img-clock" src="{{ asset('assets/images/clock.png') }}" alt="image clock" width="13">{{ post.date|localizeddate('long', 'none', 'fr_FR') }}
-                        </p>
-                        <span class="hr"></span>
-                        <p class="post-preview-content">{{ post.content|truncate(200, true) }}</p>
-                    </article>
-                {% endfor %}
+            <div class="row">
+
+                <div class="l-posts-content posts-content col-md-9">
+                    {% for post in posts %}
+                        <article class="post">
+                            <a class="post-preview-title" href="{{ path('blog_post', {'id' : post.id}) }}">{{ post.title }}</a>
+                            <p class="post-preview-date">
+                                <img class="img-clock" src="{{ asset('assets/images/clock.png') }}" alt="image clock" width="13">{{ post.date|localizeddate('long', 'none', 'fr_FR') }}
+                            </p>
+                            <span class="hr"></span>
+                            <p class="post-preview-content">{{ post.content|truncate(200, true) }}</p>
+                        </article>
+                    {% endfor %}
+                </div>
+
+                <div class="l-last-posts last-posts col-md-3">
+                    {{ render(controller("BlogBundle:Blog:lastPost")) }}
+                </div>
+
             </div>
 
         {% else %}

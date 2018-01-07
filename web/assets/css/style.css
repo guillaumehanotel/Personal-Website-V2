@@ -313,11 +313,67 @@ img.bg-img-texture {
     margin-top: 50px;
 }
 
+/** LAST POSTS **/
+
+.l-last-posts {
+    margin-top: 70px;
+    padding: 15px;
+    height: 294px;
+}
+
+.l-post .l-last-posts {
+    margin-top: 40px;
+    position: relative;
+    left: 15px;
+}
+
+.l-last-posts h5 {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.l-last-posts ul {
+    padding-left: 0;
+}
+
+.l-last-posts ul li {
+    margin-bottom: 17px;
+    font-size: 16px;
+}
+
+.l-last-posts ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.l-last-posts ul li a:hover {
+    color: rgb(110,110,110);
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+.l-last-posts .last-post-date {
+    color: grey;
+    font-size: 12px;
+}
+
+.last-posts {
+    background-color: white;
+}
+
+
 /** LAYOUT POST BLOG **/
+
+.l-post {
+    padding: 5px;
+}
 
 .l-post-content {
     margin-top: 50px;
     padding: 50px;
+
 }
 
 
@@ -886,6 +942,28 @@ span.hr {
     color: white;
 }
 
+
+.contact .contact-social-medias {
+    margin-bottom: 20px;
+}
+
+.contact .contact-social-medias a{
+    margin-left: 38px;
+}
+
+.contact .contact-social-medias a:nth-child(1) img {
+    margin-right: 1px;
+}
+.contact .contact-social-medias a:nth-child(3) img{
+    position: relative;
+    top: 1px;
+}
+.contact .contact-social-medias a:nth-child(4) img{
+    position: relative;
+    right: 3px;
+}
+
+
 /** STYLE PAGINATION **/
 
 
@@ -940,18 +1018,5 @@ span.hr {
 .label-hide {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

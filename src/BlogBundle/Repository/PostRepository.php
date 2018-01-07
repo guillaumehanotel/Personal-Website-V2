@@ -11,6 +11,22 @@ class PostRepository extends EntityRepository {
         return $this->findBy([], ['date' => 'DESC']);
     }
 
+
+    public function findLastPosts($limit){
+        if (!is_numeric($limit) || $limit == 0) {
+            $limit = 3;
+        }
+
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->orderBy('p.date', 'DESC');
+
+        $query = $queryBuilder->getQuery();
+        $query->setFirstResult(0)->setMaxResults($limit);
+
+        return $query->getResult();
+
+    }
+
     public function findAllPaginate(int $page, int $nbPerPage){
         // test des paramètres
         if (!is_numeric($nbPerPage) || $nbPerPage == 0) {
