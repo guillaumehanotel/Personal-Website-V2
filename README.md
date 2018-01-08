@@ -5,34 +5,34 @@ Projet Symfony - Guillaume HANOTEL
 
 Clone du projet :
 
-**git clone https://github.com/guillaumehanotel/Personal-Website-V2**
+    git clone https://github.com/guillaumehanotel/Personal-Website-V2
 
 
 L'installation se fait grâce à l'utilitaire make, plus particulièrement grâce à la commande :
  
- **make install**
+    make install
  
  Si l'utilisateur Apache de votre système n'est pas 'www-data' par défaut, 
  vous pouvez passer en paramètre le bon :
  
- **make install APACHE_USER=http**
+    make install APACHE_USER=http
  
  Enfin pour lancer le serveur :
  
- **make server**
+    make server
  
  
  Vous pouvez inspecter le fichier Makefile pour plus d'informations, mais voici
  les opérations effectués :
  
-    - Install Vendor
-    - Cache Clear
-    - Création BDD/Tables/Garnissage des tables
-    - Changement des permissions 
+ - Install Vendor
+ - Cache Clear
+ - Création BDD/Tables/Garnissage des tables
+ - Changement des permissions 
  
 Si à un moment, un problème de cache apparait, vous pouvez utiliser la commande
 
-**make cache-clear**
+    make cache-clear
 
 
 ## USAGE
