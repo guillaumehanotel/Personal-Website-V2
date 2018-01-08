@@ -58,6 +58,9 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts"
+        ],
+        "build-params": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
         ]
     },
     "config": {

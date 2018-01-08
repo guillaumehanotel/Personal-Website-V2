@@ -90,13 +90,18 @@ class CVController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid() && $form->isSubmitted()) {
-            if ($this->sendEmail($form->getData())) {
-                $this->addFlash('success', 'Votre message a bien été envoyé !');
-                return $this->redirect($request->getUri());
+            if (!is_null($this->container->getParameter('mailer_password')) || !empty($this->container->getParameter('mailer_password'))) {
+                if ($this->sendEmail($form->getData())) {
+                    $this->addFlash('success', 'Votre message a bien été envoyé !');
+                    return $this->redirect($request->getUri());
+                } else {
+                    $this->addFlash('danger', 'Erreur lors de l\'envoi du message');
+                }
             } else {
-                $this->addFlash('danger', 'Erreur lors de l\'envoi du message');
+                $this->addFlash('danger', 'Erreur de configuration de la messagerie');
             }
         }
+
 
         return $this->render('CVBundle:CV:contact.html.twig', [
             'form' => $form->createView()

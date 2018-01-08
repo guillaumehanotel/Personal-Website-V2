@@ -16,7 +16,7 @@ class BlogBundleExtension extends Extension {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('app.path.competence_image', $config['upload_avatar_dir']);
+        $container->setParameter('app.path.user_avatar', $config['upload_avatar_dir']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
