@@ -23,7 +23,7 @@ class PostAdmin extends AbstractAdmin {
         $formMapper
             ->add('title', TextType::class, ['label' => 'Titre'])
             ->add('content', TextareaType::class, ['label' => 'Contenu'])
-            ->add('User', null, ['label' => 'Utilisateur']);
+            ->add('User', null, ['label' => 'Utilisateur', 'required' => true]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {

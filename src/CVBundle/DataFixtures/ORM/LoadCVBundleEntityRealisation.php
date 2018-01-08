@@ -50,7 +50,9 @@ class LoadCVBundleEntityRealisation extends Fixture implements OrderedFixtureInt
         $item1->setLink("https://github.com/guillaumehanotel");
         $item1->setTitre("Github");
         $item1->setDescription("Retrouvez mes travaux sur Github !");
-        $item1->setImage("assets/database_files/github-logo.png");
+        $item1->setImageName("github-logo.png");
+        $item1->setImagePath("/assets/database_files/realisations/github-logo.png");
+        $item1->setImageSize(15793);
 
         $manager->persist($item1);
 
@@ -59,7 +61,9 @@ class LoadCVBundleEntityRealisation extends Fixture implements OrderedFixtureInt
         $item2->setLink("https://github.com/guillaumehanotel/Image-Enlarger");
         $item2->setTitre("Image Enlarger");
         $item2->setDescription("Programme Java qui multiplie la taille d'une image pixel par pixel");
-        $item2->setImage("assets/database_files/enlarger.jpg");
+        $item2->setImageName("enlarger.jpg");
+        $item2->setImagePath("/assets/database_files/realisations/enlarger.jpg");
+        $item2->setImageSize(5006);
 
         $manager->persist($item2);
 
@@ -68,9 +72,22 @@ class LoadCVBundleEntityRealisation extends Fixture implements OrderedFixtureInt
         $item3->setLink("https://github.com/guillaumehanotel/FourmiLangton");
         $item3->setTitre("Fourmi de Langton");
         $item3->setDescription("Code Java illustrant le comportement de la fourmi de Langton");
-        $item3->setImage("assets/database_files/langton_ant.png");
+        $item3->setImageName("langton_ant.png");
+        $item3->setImagePath("/assets/database_files/realisations/langton_ant.png");
+        $item3->setImageSize(10409);
 
         $manager->persist($item3);
+
+        $item5 = new Realisation();
+        $this->addReference('_reference_CVBundleEntityRealisation5', $item5);
+        $item5->setLink("https://github.com/guillaumehanotel/The-Little-Miner");
+        $item5->setTitre("The Little Miner");
+        $item5->setDescription("Javascript Game using Phaser");
+        $item5->setImageName("thelittleminer-200x200.png");
+        $item5->setImagePath("/assets/database_files/realisations/thelittleminer-200x200.png");
+        $item5->setImageSize(55312);
+
+        $manager->persist($item5);
 
 
         $manager->flush();

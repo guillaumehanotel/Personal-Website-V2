@@ -1,4 +1,4 @@
-.PHONY: install cache-clear help
+.PHONY: install cache-clear help create-database
 .DEFAULT_GOAL= help
 
 
@@ -20,3 +20,14 @@ install: cache-clear vendor composer.lock ## Installe le projet (penser à chown
 
 proxy: ## Lance browser-sync (live reload)
 	browser-sync start --proxy "websiteperso.local/app_dev.php/" --files="web/assets/css/*.css, web/assets/js/*.js, src/**/**/*.php, src/**/Resources/views/**/*.twig, app/Resources/FOSUserBundle/views/Security/*.twig, app/Resources/SonataAdminBundle/views/*.twig, app/Resources/views/*.twig" --no-notify
+
+create-database: ## Créer la base de données, les tables, et garni les tables
+	php bin/console doctrine:database:create
+	php bin/console doctrine:schema:update --force
+	php bin/console doctrine:fixtures:load -n
+
+reload-database: ## Supprime et recrée la base de données, les tables, et garni les tables
+	php bin/console doctrine:database:drop --force
+	make create-database
+
+

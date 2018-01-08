@@ -3,7 +3,7 @@
     {% for post in last_posts %}
         <li>
             <a href="{{ path('blog_post', {'id' : post.id}) }}">
-                <span class="last-post-title">{{ post.title|truncate(20, true) }}</span>
+                <span class="last-post-title">{{ post.title|truncate(30, true) }}</span>
                 <p class="last-post-date">{{ post.date|date('d/m/y') }}</p>
             </a>
         </li>

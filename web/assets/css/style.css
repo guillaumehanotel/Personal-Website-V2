@@ -186,7 +186,7 @@ img.bg-img-texture {
 
 .l-page-cv-title {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 50px;
 }
 
 .l-page-cv-content {
@@ -319,6 +319,7 @@ img.bg-img-texture {
     margin-top: 70px;
     padding: 15px;
     height: 294px;
+    height: 100%;
 }
 
 .l-post .l-last-posts {

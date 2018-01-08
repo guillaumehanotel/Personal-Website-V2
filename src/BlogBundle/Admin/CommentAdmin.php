@@ -56,7 +56,6 @@ class CommentAdmin extends AbstractAdmin {
             ->add('_action', 'actions',
                 [
                     'actions' => [
-                        'show' => [],
                         'edit' => [],
                         'delete' => []
                     ]
