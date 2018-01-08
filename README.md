@@ -8,6 +8,14 @@ Clone du projet :
     git clone https://github.com/guillaumehanotel/Personal-Website-V2
 
 
+Soyez sûr que le propriétaire/groupe du projet soient bien celui de votre utilisateur courant,
+si ce n'est pas le cas :
+
+	sudo chown -R $USER:$USER Personal-Website-V2
+
+
+Rendez vous maintenant dans le dossier du projet :
+
 L'installation se fait grâce à l'utilitaire make, plus particulièrement grâce à la commande :
  
     make install

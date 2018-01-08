@@ -20,8 +20,9 @@ cache-clear: var/cache ## Vide le cache
 	@sudo chmod -R 777 var/cache
 
 permissions: var/ web/assets/database_files ## Donne les permissions au serveur d'écrire dans le cache et dans les fichiers de la DB
-	@sudo chown -R $(APACHE_USER) var/
-	@sudo chown -R $(APACHE_USER) web/assets/database_files
+	@sudo chown -R $(APACHE_USER):$(APACHE_USER) var/
+	@sudo chown -R $(APACHE_USER):$(APACHE_USER) web/assets/database_files
+	@sudo chmod -R 777 var/
 
 create-database: ## Créer la base de données, les tables, et garni les tables
 	php bin/console doctrine:database:create
@@ -33,10 +34,10 @@ reload-database: ## Supprime et recrée la base de données, les tables, et garn
 	make create-database
 
 install: ## Installe le projet
+	make permissions
 	make vendor
 	make cache-clear
 	make create-database
-	make permissions
 
 server: ## Lance le serveur
 	make cache-clear
