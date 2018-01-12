@@ -110,9 +110,6 @@ sonata_admin:
                 position: top
                 class: col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2
                 type: sonata.admin.block.admin_list
-
-
-
         groups:
             app.admin.group.cv:
                 keep_open:            true

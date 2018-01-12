@@ -26,26 +26,6 @@ services:
                 - { name: twig.extension }
 
 
-    # Fixtures services
-    #CVBundle\DataFixtures\ORM\LoadCVBundleEntityIntro:
-        #tags: [doctrine.fixture.orm]
-    #CVBundle\DataFixtures\ORM\LoadCVBundleEntityCompetence:
-        #tags: [doctrine.fixture.orm]
-    #CVBundle\DataFixtures\ORM\LoadCVBundleEntityExperience:
-        #tags: [doctrine.fixture.orm]
-    #CVBundle\DataFixtures\ORM\LoadCVBundleEntityFormation:
-        #tags: [doctrine.fixture.orm]
-    #CVBundle\DataFixtures\ORM\LoadCVBundleEntityRealisation:
-        #tags: [doctrine.fixture.orm]
-
-    #BlogBundle\DataFixtures\ORM\LoadBlogBundleEntityComment:
-        #tags: [doctrine.fixture.orm]
-    #BlogBundle\DataFixtures\ORM\LoadBlogBundleEntityPost:
-        #tags: [doctrine.fixture.orm]
-    #BlogBundle\DataFixtures\ORM\LoadBlogBundleEntityUser:
-        #tags: [doctrine.fixture.orm]
-
-
 
 
     # makes classes in src/CVBundle available to be used as services
