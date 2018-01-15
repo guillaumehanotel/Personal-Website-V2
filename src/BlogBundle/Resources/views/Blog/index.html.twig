@@ -17,7 +17,7 @@
                         <article class="post">
                             <a class="post-preview-title" href="{{ path('blog_post', {'id' : post.id}) }}">{{ post.title }}</a>
                             <p class="post-preview-date">
-                                <img class="img-clock" src="{{ asset('assets/images/clock.png') }}" alt="image clock" width="13">{{ post.date|localizeddate('long', 'none', 'fr_FR') }}
+                                <img class="img-clock" src="{{ asset('assets/images/clock.png') }}" alt="image clock" width="13">{{ post.date|date('d M Y') }}
                             </p>
                             <span class="hr"></span>
                             <p class="post-preview-content">{{ post.content|truncate(200, true) }}</p>
